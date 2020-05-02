@@ -1,0 +1,86 @@
+* Speed Test
+| Threads | Points  | Time    |
+|      16 | 100,000 | 7h30min |
+|      16 | 380,000 | 31h     |
+** cuda cpu runs
+For 100 runs
+|------------------+------+------+----------|
+| Process          |  Mac | Arch | Ach Cuda |
+|------------------+------+------+----------|
+| initialise class |  0.2 |  0.4 |      0.2 |
+| import data*     | 0.18 |  0.8 |          |
+| simulate(300)    |   29 |   29 |       15 |
+| simulate(1000)   |   95 |   95 |       50 |
+| simulate (1)     | 0.01 | 0.01 |     0.05 |
+* Analysis
+** FAILED 16th April
+*Failed, because the range of experimental points was too large, giving large errors for seeming good fits*
+
+From the figure of error values, we see a period of 5400 which
+correspond to 16 alpha * 11 assymetry * 31 EJ = 5646
+ [[file:spectrum/output/simulation_error_16apr2019.png][image]]
+
+*** EC [the gradual rise]
+- As EC is gradually sweeped, the error values keep drifting up
+- The favourable region is for low EC values
+- 20 to 32 EC
+[[file:spectrum/output/simulation_error_16apr2019_EC.png][ec]]
+
+*** EJ [intermediate rises and falls]
+- The rapid pattern occuring on the graph, is due to EJ.
+- The dip occurs between 35 55 EJ, after which a big rise occurs
+[[file:spectrum/output/simulation_error_16apr2019_EJ.png][ej]]
+
+*** Assymetry and alpha - no apparent change
+** FAILED 17th April
+*This time, the alpha range was from 1.3 to 1.7, when in reality we work within 1-1.2*
+Once again, we get the period pattern in EJ on the big spectrum
+[[file:spectrum/output/simulation_error_17apr2019.png][fullimage]]
+
+[[file:spectrum/output/simulation_error_17apr2019_comb.png][separate]]
+* Device parameters
+*We utilise the qubit 2, with:*
+- Alpha of 1.05
+- Period of 0.7
+
+|---+--------+--------+--------+--------+--------+----------+-------+----+-------------+----------+----+----|
+|   |  quibt | loop height | loop width |   area |  ratio | jj width | alpha | half period | full period | WORKING? | EJ | EC |
+| / |    <6> |    <6> |    <6> |    <6> |    <6> |          |       | <2> |             |          |    |    |
+|---+--------+--------+--------+--------+--------+----------+-------+----+-------------+----------+----+----|
+|   |      1 |      6 |   2.75 |   16.5 |        |      0.4 |     1 | 0.3964327 |        0.79 | *        |    |    |
+|---+--------+--------+--------+--------+--------+----------+-------+----+-------------+----------+----+----|
+|   |      2 |      6 |   3.07 |  18.42 | 1.1163636 |     0.42 |  1.05 | 0.3547029 |        0.71 | *        |    |    |
+|---+--------+--------+--------+--------+--------+----------+-------+----+-------------+----------+----+----|
+|   |      3 |      6 |   3.48 |  20.88 | 1.1335505 |     0.44 |   1.1 | 0.3129732 |        0.63 |          |    |    |
+|   |      4 |      6 |   4.02 |  24.12 | 1.1551724 |     0.46 |  1.15 | 0.2712434 |        0.54 |          |    |    |
+|   |      5 |      6 |   4.75 |   28.5 | 1.181592 |     0.48 |   1.2 | 0.2295137 |        0.46 |          |    |    |
+|   |      6 |      6 |    5.8 |   34.8 | 1.2210526 |      0.5 |  1.25 | 0.1877839 |        0.38 |          |    |    |
+|   |      7 |      8 |    5.6 |   44.8 | 1.2873563 |     0.52 |   1.3 | 0.1460541 |        0.29 |          |    |    |
+|---+--------+--------+--------+--------+--------+----------+-------+----+-------------+----------+----+----|
+#+TBLFM: $9=@0$11 * 2;%.2f
+* Parameter guesses
+|--------+------+------+-------+-----------+-------|
+| Island |   EC |   EJ | Alpha | Assymetry | Error |
+|--------+------+------+-------+-----------+-------|
+|      9 | 13.5 |   92 | 1.023 |     1.011 |   331 |
+|      7 | 13.5 |   92 | 1.023 |     1.011 |    51 |
+|      5 | 13.5 |   92 | 1.023 |     1.011 |  3351 |
+|--------+------+------+-------+-----------+-------|
+|      5 |   10 | 73.5 |   1.0 |     1.015 |   114 |
+|      7 |   10 | 73.5 |   1.0 |     1.015 |  1833 |
+|      9 |   10 | 73.5 |   1.0 |     1.015 |  3201 |
+|--------+------+------+-------+-----------+-------|
+|      9 |   17 |   69 | 1.015 |      1.03 |  2597 |
+|      7 |   17 |   69 | 1.015 |      1.03 |  2606 |
+|      5 |   17 |   69 | 1.015 |      1.03 |  4130 |
+|--------+------+------+-------+-----------+-------|
+|      9 |   22 |   59 | 1.075 |   1.01625 |   633 |
+|      7 |   22 |   59 | 1.075 |   1.01625 |   584 |
+|      5 |   22 |   59 | 1.075 |   1.01625 |  1108 |
+|--------+------+------+-------+-----------+-------|
+
+
+Started 17.59
+ended 1 day 00.51
+* Perturbation theory
+So when to stop adding levels? Well, from the images it is 9 levels
