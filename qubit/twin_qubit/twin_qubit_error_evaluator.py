@@ -12,7 +12,7 @@ class ErrorEvaluator(object):
         Error between the experimental data points and the simulation
         """
         try:
-            logging.info(
+            logging.debug(
                 "==> 'experimental_data_error' comparing simulation to experiment"
             )
 
@@ -62,7 +62,7 @@ class ErrorEvaluator(object):
                     ** 2
                 )
 
-            logging.info("'experimental_data_error' finished")
+            logging.debug("'experimental_data_error' finished")
 
             return error_cumulative
         except TypeError as e:

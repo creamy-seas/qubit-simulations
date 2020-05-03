@@ -18,7 +18,7 @@ class DataLoader(object):
 
         Plots and finds differences between simulation and experiment
         """
-        logging.info("'experimental_data_load' Importing data files")
+        logging.debug("'experimental_data_load' Importing data files")
 
         # 1 - data files to load
         base_data_name = "data/Qubit15_5JJ_Q2_"
@@ -95,7 +95,7 @@ class DataLoader(object):
         self.flux_list_experimental_23 = temp_array[0]
         self.spectrum_experimental_23 = temp_array[1]
 
-        logging.info(
+        logging.debug(
             "Imported %i flux points",
             len(
                 list(self.flux_list_experimental_12)
@@ -106,7 +106,7 @@ class DataLoader(object):
         # 4 - set the flux array is required (then simulations are only done to compare with
         # experimental points)
         if set_flux_list:
-            logging.info("Set experimental flux points for simulation")
+            logging.debug("Set experimental flux points for simulation")
             self.flux_list = np.array(
                 list(self.flux_list_experimental_12)
                 + list(self.flux_list_experimental_23)
@@ -116,7 +116,7 @@ class DataLoader(object):
         if self.plot_or_not:
             plt.show()
 
-        logging.info("'experimental_data_load' finished")
+        logging.debug("'experimental_data_load' finished")
 
 
             def import_and_sort_array(self, file_name, i):
@@ -179,14 +179,14 @@ class DataLoader(object):
         must specify the number of field points used
         """
 
-        logging.info("Importing transmission data file '{file_name}'")
+        logging.debug("Importing transmission data file '{file_name}'")
 
         with open(file_name) as fin:
             first_line = fin.readline()
 
         no_field_points = int(first_line.split()[1])
         no_freq_points = int(first_line.split()[3])
-        logging.info(
+        logging.debug(
             f"{no_field_points} field points and {no_freq_points} frequency points"
         )
 
@@ -195,7 +195,7 @@ class DataLoader(object):
             transmission_array[i] = transmission_array[i].transpose()
 
         if self.plot_or_not:
-            logging.info("Plotting, cos why not")
+            logging.debug("Plotting, cos why not")
             for i in plot_list:
                 if (i < 0) or (i >= len(transmission_array)):
                     raise ValueError(
@@ -203,7 +203,7 @@ class DataLoader(object):
                     )
 
                 plot_axes.plot(transmission_array[i][1], transmission_array[i][2])
-        logging.info("==> 'import_transmission_spectrum' finished")
+        logging.debug("==> 'import_transmission_spectrum' finished")
 
     def save_plot(self, mpl_axes, filename, dpi=100):
         mpl_axes.set_facecolor("white")
