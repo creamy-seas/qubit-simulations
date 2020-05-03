@@ -137,7 +137,7 @@ C*C_inv = {np.array(capacitance_matrix).dot(np.array(capacitance_matrix.I))}
             self.assymetry = assymetry
 
     def print_constants(self):
-        logging.warn(
+        logging.info(
             f"""⚛ Constant Manager using parameters:
 {'EC:':<30}{self.EC}
 {'EJ:':<30}{self.EJ}

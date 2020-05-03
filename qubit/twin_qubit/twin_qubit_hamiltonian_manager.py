@@ -21,32 +21,31 @@ class TwinQubitHamiltonianManager:
             "phi1",
             "phi2",
             "phi3",
-            "+phi21",
-            "-phi21",
-            "+phi32",
-            "-phi32",
+            "+phi1-phi2+phiExt",
+            "-phi1+phi2-phiExt",
+            "-phi2+phi3-nphiExt",
+            "+phi2-phi3+nphiExt",
         ]
         self.hamiltonian_skeleton = defaultdict(lambda: defaultdict(list))
         self.hamiltonian_constant = {}
         self.hamiltonian_flux_dependent = {}
-        self.hamiltonian_simulation = None
 
     def stage1_prepare_hamiltonian_skeleton(self):
         """
         __ Description __
         Generates building blocks of the Hamiltonian that will be scaled with energies in stage2 and stage3
-        |------------+------------+------------+---+-------------------------------|
-        |            |            |            |   | Scaling of elm                |
-        |------------+------------+------------+---+-------------------------------|
-        | charge-elm | charge-row | charge-col |   | EC                            |
-        | phi1-elm   | phi1-row   | phi1-col   |   | -EJ/2                         |
-        | phi2-elm   | phi2-row   | phi2-col   |   | -alpha*EJ/2                   |
-        | phi3-elm   | phi3-row   | phi3-col   |   | -EJ/2                         |
-        | +phi21-elm | +phi21-row | +phi21-col |   | -EJ/2 * e^(+i * phi_ext)      |
-        | -phi21-elm | -phi21-row | -phi21-col |   | -EJ/2 * e^(-i * phi_ext)      |
-        | +phi32-elm | +phi32-row | +phi32-col |   | -EJ/2 * e^(-i * phi_ext * nu) |
-        | -phi32-elm | -phi32-row | -phi32-col |   | -EJ/2 * e^(+i * phi_ext * nu) |
-        |------------+------------+------------+---+-------------------------------|
+        |--------------------+-------------------------------|
+        |                    | Scaling                       |
+        |--------------------+-------------------------------|
+        | charge             | EC                            |
+        | phi1               | -EJ/2                         |
+        | phi2               | -alpha*EJ/2                   |
+        | phi3               | -EJ/2                         |
+        | +phi1-phi2+phiExt  | -EJ/2 * e^(+i * phi_ext)      |
+        | -phi1+phi2-phiExt  | -EJ/2 * e^(-i * phi_ext)      |
+        | -phi2+phi3-nphiExt | -EJ/2 * e^(-i * phi_ext * nu) |
+        | +phi2-phi3+nphiExt | -EJ/2 * e^(+i * phi_ext * nu) |
+        |--------------------+-------------------------------|
         """
 
         capacitance_mat_inv = self.twin_qubit_constant_manager.capacitance_mat_inv
@@ -55,9 +54,10 @@ class TwinQubitHamiltonianManager:
         convert_index_to_island_state = (
             self.twin_qubit_state_manager.convert_index_to_island_state
         )
-        convert_island_state_to_index = (
-            self.twin_qubit_state_manager.convert_island_state_to_index
+        convert_numeric_state_to_index = (
+            self.twin_qubit_state_manager.convert_numeric_state_to_index
         )
+        state1, state2, state3 = 0, 1, 2
 
         logging.debug(
             f"""🏗 Creating skeleton
@@ -67,69 +67,79 @@ class TwinQubitHamiltonianManager:
 {capacitance_mat_inv}"""
         )
 
-        for x in range(0, states_total_number):
+        # mcol for matrixColumn
+        for mcol in range(0, states_total_number):
 
-            (state_indx, state_cp) = convert_index_to_island_state(x)
+            (mcol_state_numeric, mcol_state_cp) = convert_index_to_island_state(mcol)
 
-            # Evaluation using nT * C-1 * n
+            # Evaluation of diagonal charging energy using nT * C-1 * n
             normalised_charging_energy = np.dot(
-                state_cp, np.dot(capacitance_mat_inv, state_cp),
+                mcol_state_cp, np.dot(capacitance_mat_inv, mcol_state_cp),
             )
-            self.hamiltonian_skeleton["charge"]["row"].append(x)
-            self.hamiltonian_skeleton["charge"]["col"].append(x)
+            self.hamiltonian_skeleton["charge"]["row"].append(mcol)
+            self.hamiltonian_skeleton["charge"]["col"].append(mcol)
             self.hamiltonian_skeleton["charge"]["elm"].append(
                 normalised_charging_energy
             )
 
             # Offdiagonal JJ energy
             # - check that index is within matrix boundaries
-            # - offset y coordinate from diagonal
+            # - create a row-col offset from diagonal
             # - fill out the symmetrical entries
-            if state_indx[0] < (states_per_island - 1):
+            if mcol_state_numeric[state1] < (states_per_island - 1):
                 # cos(phi_1) => |n1><n1+1| and |n1+1><n1|
-                y = convert_island_state_to_index(state_indx + [1, 0, 0])
-                self.hamiltonian_skeleton["phi1"]["row"] += [x, y]
-                self.hamiltonian_skeleton["phi1"]["col"] += [y, x]
+                mrow = convert_numeric_state_to_index(mcol_state_numeric + [1, 0, 0])
+                self.hamiltonian_skeleton["phi1"]["row"] += [mrow, mcol]
+                self.hamiltonian_skeleton["phi1"]["col"] += [mcol, mrow]
 
                 # cos(phi_2 - phi_1 - phi_ext), with cp exchange between 2 <-> 1
-                if state_indx[1] > 0:
-                    y = convert_island_state_to_index(state_indx + [1, -1, 0])
-                    self.hamiltonian_skeleton["-phi21"]["row"] += [y]
-                    self.hamiltonian_skeleton["-phi21"]["col"] += [x]
-                    self.hamiltonian_skeleton["+phi21"]["row"] += [x]
-                    self.hamiltonian_skeleton["+phi21"]["col"] += [y]
+                if mcol_state_numeric[state2] > 0:
+                    mrow = convert_numeric_state_to_index(
+                        mcol_state_numeric + [1, -1, 0]
+                    )
+                    self.hamiltonian_skeleton["-phi1+phi2-phiExt"]["row"] += [mcol]
+                    self.hamiltonian_skeleton["-phi1+phi2-phiExt"]["col"] += [mrow]
+                    self.hamiltonian_skeleton["+phi1-phi2+phiExt"]["row"] += [mrow]
+                    self.hamiltonian_skeleton["+phi1-phi2+phiExt"]["col"] += [mcol]
 
-            if state_indx[1] < (states_per_island - 1):
+            if mcol_state_numeric[1] < (states_per_island - 1):
                 # alpha * cos(phi_2) => |n2><n2+1| and |n2+1><n2|
-                y = convert_island_state_to_index(state_indx + [0, 1, 0])
-                self.hamiltonian_skeleton["phi2"]["row"] += [x, y]
-                self.hamiltonian_skeleton["phi2"]["col"] += [y, x]
+                mrow = convert_numeric_state_to_index(mcol_state_numeric + [0, 1, 0])
+                self.hamiltonian_skeleton["phi2"]["row"] += [mrow, mcol]
+                self.hamiltonian_skeleton["phi2"]["col"] += [mcol, mrow]
 
-            if state_indx[2] < (states_per_island - 1):
-                # cos(phi_3) => |n3><n3+1| and |n3+1><n3|
-                y = convert_island_state_to_index(state_indx + [0, 0, 1])
-                self.hamiltonian_skeleton["phi3"]["row"] += [x, y]
-                self.hamiltonian_skeleton["phi3"]["col"] += [y, x]
+            if mcol_state_numeric[state3] < (states_per_island - 1):
+                # cos(phi_3)
+                mrow = convert_numeric_state_to_index(mcol_state_numeric + [0, 0, 1])
+
+                self.hamiltonian_skeleton["phi3"]["row"] += [mrow, mcol]
+                self.hamiltonian_skeleton["phi3"]["col"] += [mcol, mrow]
 
                 # cos(phi_2 - phi_3 + nphi_ext), with cp exchange between 2 <-> 3
-                if state_indx[1] > 0:
-                    y = convert_island_state_to_index(state_indx + [0, -1, 1])
-                    self.hamiltonian_skeleton["-phi32"]["row"] += [x]
-                    self.hamiltonian_skeleton["-phi32"]["col"] += [y]
-                    self.hamiltonian_skeleton["+phi32"]["row"] += [y]
-                    self.hamiltonian_skeleton["+phi32"]["col"] += [x]
+                if mcol_state_numeric[1] > 0:
+                    mrow = convert_numeric_state_to_index(
+                        mcol_state_numeric + [0, -1, 1]
+                    )
+                    self.hamiltonian_skeleton["+phi2-phi3+nphiExt"]["row"] += [mrow]
+                    self.hamiltonian_skeleton["+phi2-phi3+nphiExt"]["col"] += [mcol]
+                    self.hamiltonian_skeleton["-phi2+phi3-nphiExt"]["row"] += [mcol]
+                    self.hamiltonian_skeleton["-phi2+phi3-nphiExt"]["col"] += [mrow]
 
-        # For kinetic charge energy, the elements have been evaluated
+        self.convert_skeleton_charge_elements_to_array()
+        self.set_skeleton_jj_elements_as_ones()
+
+        self.print_skeleton_information()
+
+    def convert_skeleton_charge_elements_to_array(self):
         self.hamiltonian_skeleton["charge"]["elm"] = np.array(
             self.hamiltonian_skeleton["charge"]["elm"]
         )
-        # For potential JJ energy, we set the elements to 1
+
+    def set_skeleton_jj_elements_as_ones(self):
         for component in self.hamiltonian_components[1:]:
             self.hamiltonian_skeleton[component]["elm"] = np.ones(
                 len(self.hamiltonian_skeleton[component]["row"])
             )
-
-        self.print_skeleton_information()
 
     def print_skeleton_information(self):
         warn_string = "🏗 Skeleton Hamiltonian Information\n"
@@ -154,10 +164,10 @@ class TwinQubitHamiltonianManager:
         | phi1-elm   | phi1-row   | phi1-col   |   | -EJ/2                         |
         | phi2-elm   | phi2-row   | phi2-col   |   | -alpha * EJ/2                 |
         | phi3-elm   | phi3-row   | phi3-col   |   | -EJ/2                         |
-        | ✘          | +phi21-row | +phi21-col |   |            ✘		   |
-        | ✘          | -phi21-row | -phi21-col |   |            ✘		   |
-        | ✘          | +phi32-row | +phi32-col |   |            ✘		   |
-        | ✘          | -phi32-row | -phi32-col |   |            ✘		   |
+        | ✘          | +phi1-phi2+phiExt-row | +phi1-phi2+phiExt-col |   |            ✘		   |
+        | ✘          | -phi1+phi2-phiExt-row | -phi1+phi2-phiExt-col |   |            ✘		   |
+        | ✘          | -phi2+phi3-nphiExt-row | -phi2+phi3-nphiExt-col |   |            ✘		   |
+        | ✘          | +phi2-phi3+nphiExt-row | +phi2-phi3+nphiExt-col |   |            ✘		   |
         |------------+------------+------------+---+-------------------------------|
         | ['elm']    | ['row']    | ['col']    |   |                               |
         |------------+------------+------------+---+-------------------------------|
@@ -173,7 +183,7 @@ class TwinQubitHamiltonianManager:
 {'alpha:':<10}{alpha}"""
         )
 
-        # Rows and Columns are stacked
+        # Rows and Columns are stacked - order is critical
         self.hamiltonian_constant["row"] = []
         self.hamiltonian_constant["col"] = []
         for component in self.hamiltonian_components:
@@ -234,10 +244,10 @@ class TwinQubitHamiltonianManager:
         __ Description __
         Scale the flux-dependent part of the Hamiltonian changes as the field is being swept.
         |--------+------------+------------+---+-------------------------------|
-        | +phi21 |            |            |   | -EJ/2 * e^(+i * phi_ext)      |
-        | -phi21 |            |            |   | -EJ/2 * e^(-i * phi_ext)      |
-        | +phi32 |            |            |   | -EJ/2 * e^(-i * phi_ext * nu) |
-        | -phi32 |            |            |   | -EJ/2 * e^(+i * phi_ext * nu) |
+        | +phi1-phi2+phiExt |            |            |   | -EJ/2 * e^(+i * phi_ext)      |
+        | -phi1+phi2-phiExt |            |            |   | -EJ/2 * e^(-i * phi_ext)      |
+        | -phi2+phi3-nphiExt |            |            |   | -EJ/2 * e^(-i * phi_ext * nu) |
+        | +phi2-phi3+nphiExt |            |            |   | -EJ/2 * e^(+i * phi_ext * nu) |
         |--------+------------+------------+---+-------------------------------|
         """
 
@@ -247,20 +257,20 @@ class TwinQubitHamiltonianManager:
             (
                 -EJ
                 / 2
-                * np.exp(1j * phi_external)
-                * self.hamiltonian_skeleton["+phi21"]["elm"],
+                * np.exp(-1j * phi_external)
+                * self.hamiltonian_skeleton["+phi1-phi2+phiExt"]["elm"],
                 -EJ
                 / 2
-                * np.exp(-1j * phi_external)
-                * self.hamiltonian_skeleton["+phi21"]["elm"],
+                * np.exp(+1j * phi_external)
+                * self.hamiltonian_skeleton["-phi1+phi2-phiExt"]["elm"],
                 -EJ
                 / 2
                 * np.exp(-1j * phi_external_assymetric)
-                * self.hamiltonian_skeleton["+phi32"]["elm"],
+                * self.hamiltonian_skeleton["-phi2+phi3-nphiExt"]["elm"],
                 -EJ
                 / 2
-                * np.exp(1j * phi_external_assymetric)
-                * self.hamiltonian_skeleton["-phi32"]["elm"],
+                * np.exp(+1j * phi_external_assymetric)
+                * self.hamiltonian_skeleton["+phi2-phi3+nphiExt"]["elm"],
             )
         )
 

@@ -10,16 +10,17 @@ class TwinQubit:
     def __init__(
         self,
         quantum_logger,
-        _twin_qubit_constant_manager,
-        _twin_qubit_simulator,
-        _twin_qubit_plotter,
+        twin_qubit_constant_manager,
+        twin_qubit_simulator,
+        twin_qubit_plotter,
+        twin_qubit_sparse_matrix_visualiser,
     ):
         """
         - measured in nm
         - working with frequencies (normalised by hbar)
         - working in unit of Phi0
         """
-        pass
+        self.simulations = None
 
     def override_parameters(self, EC=None, EJ=None, alpha=None, assymetry=None):
         self._twin_qubit_constant_manager.override_parameters(EC, EJ, alpha, assymetry)
@@ -27,6 +28,7 @@ class TwinQubit:
 
     def run_simulation(self, evaluate_dipole_element=False):
         self._twin_qubit_simulator.simulate(evaluate_dipole_element)
+        self.simulations = self._twin_qubit_simulator.simulations
 
     def plot_transitions(self, mpl_axes: Axes):
         self._twin_qubit_plotter.plot_transitions(mpl_axes)
@@ -37,7 +39,5 @@ class TwinQubit:
     def plot_dipole_moment_voltage_beta(self, mpl_axes: Axes):
         self._twin_qubit_plotter.plot_dipole_moment_voltage_beta(mpl_axes)
 
-    def generate_axes(
-        self, nrows: int = 1, ncols: int = 1
-    ) -> Tuple[Figure, List[Axes]]:
-        return self._twin_qubit_plotter.generate_axes(nrows, ncols)
+    def plot_sparse_matrix(self, mpl_axes: Axes):
+        self._twin_qubit_sparse_matrix_visualiser.visualise_matrix(mpl_axes)

@@ -1,6 +1,5 @@
 import logging
 from typing import Tuple, List
-
 import numpy as np
 
 
@@ -12,14 +11,10 @@ class TwinQubitStateManager:
         self.states_total_number = self.states_per_island ** 3
         self.cp_offset_to_apply = (self.states_per_island - 1) // 2
 
-        self.print_simulation_parameters()
+        self.verify_simulation_parameters()
 
-    def print_simulation_parameters(self):
+    def verify_simulation_parameters(self):
         """Correct common errors before program begins"""
-        if (self.states_total_number % 2) == 0:
-            raise ValueError(
-                f"Total number of states is {self.states_total_number} -> it needs to be odd"
-            )
         logging.info(
             f"""⚙ Quantum state manager is using:
 {self.states_per_island:<5} states per island
@@ -35,34 +30,40 @@ class TwinQubitStateManager:
 
         __ Description __
         Takes an index and converts it to a unique cooper pair distribution
-        across the 3 islands of the system - (n1, n2, n3).
+        across the 3 islands of the system - (n1, n2, n3), begging with the lowest number
 
         __ Returns __
-        [int, int, int] state_indx:            3-island index distribution
+        [int, int, int] state_numeric:            3-island index distribution
         [int, int, int] state_cp:              3-island cp distribution, centered about (0,0,0)
         """
 
         if (index < 0) or (index >= self.states_total_number):
             raise ValueError(
-                "Index {index} must be within 0 and {self.states_total_number} -> converting to 0"
+                f"Index {index} must be within 0 and {self.states_total_number} -> converting to 0"
             )
 
-        # 1 - convert index to  represetnation on the 3 islands
-        state_indx = np.zeros(3, dtype=int)
+        # Convert index to  represetnation on the 3 islands
+        # Order of bits is reversed: 011 -> 110 otherwise 0's will be trimmed
+        state_numeric = np.zeros(3, dtype=int)
         for idx_i, i in enumerate(
             np.base_repr(index, base=self.states_per_island)[::-1]
         ):
-            state_indx[idx_i] = int(i)
+            state_numeric[idx_i] = int(i, base=self.states_per_island)
 
-        # 2 - generate cp distribution, centered around (0, 0, 0)
-        state_cp = state_indx - self.cp_offset_to_apply
+        # Reverse the order: [5, 0, 0] -> [0, 0, 5] as we want the array to increase from rightmost entry
+        state_numeric = state_numeric[::-1]
 
-        return state_indx, state_cp
+        state_cp = state_numeric - self.cp_offset_to_apply
 
-    def convert_island_state_to_index(self, state_indx: List) -> int:
+        return state_numeric, state_cp
+
+    def convert_numeric_state_to_index(self, state_numeric: List) -> int:
         """
         __ Parameters __
         [int, int, int] -> inique index from 0 to states_per_island^3
         """
+        index = 0
+        for (power, value) in enumerate(state_numeric[::-1]):
+            index += value * self.states_per_island ** power
 
-        return int("".join(map(str, state_indx)), base=self.states_per_island)
+        return index

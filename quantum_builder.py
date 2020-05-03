@@ -13,6 +13,10 @@ from qubit.twin_qubit.twin_qubit_state_manager import TwinQubitStateManager
 from qubit.twin_qubit.twin_qubit_hamiltonian_manager import TwinQubitHamiltonianManager
 from qubit.twin_qubit.twin_qubit_operator_builder import TwinQubitOperatorBuilder
 from qubit.twin_qubit.twin_qubit_simulator import TwinQubitSimulator
+from qubit.twin_qubit.twin_qubit_plotter import TwinQubitPlotter
+from qubit.twin_qubit.twin_qubit_sparse_matrix_visualiser import (
+    TwinQubitSparseMatrixVisualiser,
+)
 
 from qubit.utils.quantum_constants import QuantumConstants
 from qubit.utils.quantum_logger import QuantumLogger

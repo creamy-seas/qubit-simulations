@@ -21,7 +21,7 @@ class TwinQubitSimulator:
         twin_qubit_operator_builder,
         quantum_constants,
     ):
-        self.simulation = defaultdict(list)
+        self.simulations = defaultdict(list)
 
     def evaluate_flux_in_loops(self, flux_number: float) -> Tuple[float, float]:
         phi_external = flux_number * 2 * np.pi
@@ -44,8 +44,8 @@ class TwinQubitSimulator:
         """
 
         # ⦿ Reset for simulation
-        self.simulation["eigvals"] = np.empty((0, 3))
-        self.simulation["eigvecs"] = np.empty(
+        self.simulations["eigvals"] = np.empty((0, 3))
+        self.simulations["eigvecs"] = np.empty(
             (0, self.twin_qubit_state_manager.states_total_number)
         )
         self.twin_qubit_hamiltonian_manager.stage1_prepare_hamiltonian_skeleton()
@@ -92,20 +92,20 @@ class TwinQubitSimulator:
         return (eigvals, eigvecs)
 
     def append_results(self, eigvals: np.array, eigvecs: np.array):
-        self.simulation["eigvals"] = np.vstack((self.simulation["eigvals"], eigvals))
-        self.simulation["eigvecs"] = np.vstack((self.simulation["eigvecs"], eigvecs))
-        self.simulation["1-2"].append(eigvals[1] - eigvals[0])
-        self.simulation["2-3"].append(eigvals[2] - eigvals[1])
+        self.simulations["eigvals"] = np.vstack((self.simulations["eigvals"], eigvals))
+        self.simulations["eigvecs"] = np.vstack((self.simulations["eigvecs"], eigvecs))
+        self.simulations["1-2"].append(eigvals[1] - eigvals[0])
+        self.simulations["2-3"].append(eigvals[2] - eigvals[1])
 
     def evaluate_dipole_element_and_append(self, voltage_matrix: sp.csr_matrix):
-        state_0 = self.simulation["eigvecs"][0]
-        state_1 = self.simulation["eigvecs"][1]
+        state_0 = self.simulations["eigvecs"][0]
+        state_1 = self.simulations["eigvecs"][1]
 
         dipole_moment_voltage = state_0.dot(voltage_matrix.dot(state_1))
 
         dipole_moment_beta = dipole_moment_voltage / (
-            self.quantum_constants.phi0 * self.simulation["1-2"][-1]
+            self.quantum_constants.phi0 * self.simulations["1-2"][-1]
         )
 
-        self.simulation["dipole-voltage"].append(np.abs(dipole_moment_voltage))
-        self.simulation["dipole-beta"].append(np.abs(dipole_moment_beta))
+        self.simulations["dipole-voltage"].append(np.abs(dipole_moment_voltage))
+        self.simulations["dipole-beta"].append(np.abs(dipole_moment_beta))
