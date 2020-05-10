@@ -34,6 +34,21 @@ class TwinQubitPlotter:
         mpl_axes.set_xlabel("Magnetic Flux ($\Phi$)")
         mpl_axes.set_ylabel("$\omega/2\pi$ (GHz)")
 
+    def plot_dipole_matrix_elements(self, mpl_axes: Axes):
+        logging.info("Plotting transition matrix elemnents")
+
+        mpl_axes.plot(
+            self.flux_list, self.twin_qubit_simulator.simulations["d32"], color="C5"
+        )
+        mpl_axes.plot(
+            self.flux_list, self.twin_qubit_simulator.simulations["d21"], color="C6"
+        )
+        mpl_axes.plot(
+            self.flux_list, self.twin_qubit_simulator.simulations["d13"], color="C7"
+        )
+        mpl_axes.set_xlabel("Normalised Magnetic Flux ($\Phi/\Phi_0$)")
+        mpl_axes.set_ylabel(r"Matrix elements ($\mu$V)")
+
     def plot_dipole_moment_voltage(self, mpl_axes: Axes):
 
         logging.info("📈 Plotting dipole moment")
@@ -47,11 +62,6 @@ class TwinQubitPlotter:
             ** (1 / 2),
             label="1<->2",
             color="C6",
-        )
-
-        mpl_axes.set_xlabel("Magnetic Flux ($\Phi$)")
-        mpl_axes.set_ylabel(
-            r"$\left|\left|\langle 1|\hat{V}_{20}|2 \rangle\right|\right|$ ($\mu$V)"
         )
 
     def plot_dipole_moment_voltage_beta(self, mpl_axes: Axes):

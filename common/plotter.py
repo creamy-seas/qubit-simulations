@@ -4,12 +4,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def save_ree(mpl_axes, output_file_name, save_format: Union["svg", "png", "pdf"]):
-    """Saves onto white background
-    """
+def plot_column_data(mpl_axes, output_file_name):
+
+    array_in = np.loadtxt(output_file_name).transpose()
+
+    mpl_axes.plot(array_in[0], array_in[1])
+    plt.show()
+
+
+def save_onto_white_background(
+    mpl_axes, output_file_name, save_format: Union["svg", "png", "pdf"]
+):
     if save_format != "svg":
         mpl_axes.set_facecolor("white")
     plt.savefig(f"{output_file_name}.{save_format}", transparent=True)
+
+
+def set_geometry(left=0, c2=30, width=1280, height=1600):
+    plt.get_current_fig_manager().window.setGeometry(left, c2, width, height)
 
 
 def customize_figure_size(left, right, bottom, top):
@@ -71,12 +83,3 @@ def compare_to_matlab(coo_matrix, output_file_name):
             )
 
         fout.write(string_to_write)
-
-
-def plot_column_data(mpl_axes, output_file_name):
-
-    array_in = np.loadtxt(output_file_name).transpose()
-    print(len(array_in[0]))
-
-    mpl_axes.plot(array_in[0], array_in[1])
-    plt.show()

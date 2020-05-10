@@ -128,19 +128,9 @@ if __name__ == "__main__":
 
     # utils.plot_column_data(ax, "output/simulation_error_16apr2019.txt")
 
-    ###########################################################################
-    #                         Matrix for supplementary                        #
-    ###########################################################################
-    # test = twin(1, 1, 3, 100, True, False)
-    # test.sparse_matrix_visualise()
-    # utils.save_ree(test.ax, "output/fig4_matrix", "svg")
-
     # ############################################################
     # ################### Dipole transition ######################
     # ############################################################
-    # no_points = 1000
-    # utils.config_plot_size(0.2, 0.9, 0.15, 0.9)
-
     # # 1 - twin qubit
     # EC = 13.5
     # EJ = 92

@@ -8,7 +8,7 @@ from unittest.mock import call
 
 import numpy as np
 
-from qubit.twin_qubit.twin_qubit_state_manager import TwinQubitStateManager
+from qubit.twin_qubit.cellar.twin_qubit_state_manager import TwinQubitStateManager
 
 
 class TestLogRequest(unittest.TestCase):

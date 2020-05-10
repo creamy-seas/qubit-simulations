@@ -14,6 +14,7 @@ class TwinQubit:
         twin_qubit_simulator,
         twin_qubit_plotter,
         twin_qubit_sparse_matrix_visualiser,
+        twin_qubit_init_details,
     ):
         """
         - measured in nm
@@ -21,6 +22,7 @@ class TwinQubit:
         - working in unit of Phi0
         """
         self.simulations = None
+        self.flux_list = twin_qubit_init_details.flux_list
 
     def override_parameters(self, EC=None, EJ=None, alpha=None, assymetry=None):
         self._twin_qubit_constant_manager.override_parameters(EC, EJ, alpha, assymetry)
@@ -32,6 +34,9 @@ class TwinQubit:
 
     def plot_transitions(self, mpl_axes: Axes):
         self._twin_qubit_plotter.plot_transitions(mpl_axes)
+
+    def plot_dipole_matrix_elements(self, mpl_axes: Axes):
+        self._twin_qubit_plotter.plot_dipole_matrix_elements(mpl_axes)
 
     def plot_dipole_moment_voltage(self, mpl_axes: Axes):
         self._twin_qubit_plotter.plot_dipole_moment_voltage(mpl_axes)

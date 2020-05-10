@@ -24,7 +24,7 @@ class QuantumLogger:
 
     def __init__(self, logging_level):
 
-        # Remove any loggers already presetn
+        # Remove any loggers already present
         if len(logging.getLogger().handlers) > 0:
             logging.getLogger().handlers = []
 

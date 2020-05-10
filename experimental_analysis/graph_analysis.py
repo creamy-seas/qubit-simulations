@@ -3,59 +3,8 @@ import numpy as np
 import matplotlib as mp
 from scipy.optimize import curve_fit
 
-import utils
-
-
+# TODO: Tidy this
 class general_data:
-    def __init__(self, plot_or_not):
-        self.plot_or_not = plot_or_not
-        self.fig, self.ax = self.prepare_plot(1, 1)
-        self.transmission_x = []
-        self.transmission_y = []
-
-    def prepare_plot(self, nrows, ncols):
-        """
-        __ Parameters __
-        nrows: number of subplot rows
-        ncols: number of suplot columns
-
-        __ Description __
-        Prepare figure on which plotting will be performed
-        """
-        # 1 - by default, nothing is plotting
-        fig = None
-        ax = None
-        plt.ioff()
-        plt.close("all")
-
-        if self.plot_or_not:
-            print("==> 'prepare_plot' is setting up figure and axes")
-            # 2 - interactive mode, to alow updating
-            plt.ion()
-
-            # 3 - define plots
-            fig, ax = plt.subplots(nrows=nrows, ncols=ncols)
-            try:
-                # 3  - adjust position on the screen
-                mngr = plt.get_current_fig_manager()
-                mngr.window.setGeometry(0, 30, 1280, 1600)
-                self.fig.canvas.set_window_title("Run time data")
-
-            except AttributeError:
-                pass
-            print("==> 'prepare_plot' finished")
-
-        return fig, ax
-
-    def raise_error(self, display):
-        output = (
-            "\n****************************************\n"
-            + display
-            + "\n****************************************\n"
-        )
-        print(output)
-        raise ValueError(display)
-
     def transmission_load(self, colX, colY, convert_to_ghz):
         """
         __ Parameters __
@@ -75,10 +24,6 @@ class general_data:
             self.transmission_x = self.transmission_x / 10 ** 9
 
     def transmission_filter(self, x_min, x_max, y_min, y_max):
-        """
-        __ Description __
-        Remove any data points out of the ones specified
-        """
         if len(self.transmission_x) == 0:
             raise Exception("No data loaded!")
 

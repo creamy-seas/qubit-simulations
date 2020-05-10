@@ -8,13 +8,17 @@ import pinject
 
 from qubit.twin_qubit.twin_qubit import TwinQubit
 from qubit.twin_qubit.twin_qubit_init_details import TwinQubitInitDetails
-from qubit.twin_qubit.twin_qubit_constant_manager import TwinQubitConstantManager
-from qubit.twin_qubit.twin_qubit_state_manager import TwinQubitStateManager
-from qubit.twin_qubit.twin_qubit_hamiltonian_manager import TwinQubitHamiltonianManager
-from qubit.twin_qubit.twin_qubit_operator_builder import TwinQubitOperatorBuilder
-from qubit.twin_qubit.twin_qubit_simulator import TwinQubitSimulator
-from qubit.twin_qubit.twin_qubit_plotter import TwinQubitPlotter
-from qubit.twin_qubit.twin_qubit_sparse_matrix_visualiser import (
+from qubit.twin_qubit.cellar.twin_qubit_constant_manager import TwinQubitConstantManager
+from qubit.twin_qubit.cellar.twin_qubit_state_manager import TwinQubitStateManager
+from qubit.twin_qubit.simulation.twin_qubit_hamiltonian_manager import (
+    TwinQubitHamiltonianManager,
+)
+from qubit.twin_qubit.simulation.twin_qubit_operator_builder import (
+    TwinQubitOperatorBuilder,
+)
+from qubit.twin_qubit.simulation.twin_qubit_simulator import TwinQubitSimulator
+from qubit.twin_qubit.plotting.twin_qubit_plotter import TwinQubitPlotter
+from qubit.twin_qubit.plotting.twin_qubit_sparse_matrix_visualiser import (
     TwinQubitSparseMatrixVisualiser,
 )
 

@@ -2,8 +2,7 @@ import numpy as np
 
 
 class GenericConverter:
-    """Class that runs generic conversions
-    """
+    """Class that runs generic conversions"""
 
     def __init__(self, quantum_constants):
         self.constants = quantum_constants

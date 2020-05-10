@@ -17,7 +17,7 @@ class TwinQubitOperatorBuilder:
         pass
 
     def build(self) -> Tuple[sp.csr_matrix, sp.csr_matrix]:
-        """Returns-> Builds voltage and phase operators """
+        """Builds voltage and phase operators (read the supplementary notes)"""
 
         EC = self.twin_qubit_constant_manager.EC
         alpha = self.twin_qubit_constant_manager.alpha
@@ -46,19 +46,20 @@ class TwinQubitOperatorBuilder:
             / (2 * self.quantum_constants.eCharge * (1 + alpha))
         )
 
-        for x in range(0, states_total_number):
+        for mcol in range(0, states_total_number):
 
-            (state_numeric, state_cp) = convert_index_to_island_state(x)
+            (state_numeric, state_cp) = convert_index_to_island_state(mcol)
 
-            voltage_elm = voltage_constant * (np.dot(state_cp, [1, 2, 1]))
-            voltage_matrix_dict["row-col"].append(x)
-            voltage_matrix_dict["elm"].append(voltage_elm)
+            voltage_matrix_dict["row-col"].append(mcol)
+            voltage_matrix_dict["elm"].append(
+                voltage_constant * np.dot(state_cp, [1, 2, 1])
+            )
 
             # 4 - phase operator e^{i phi_20}
             if state_numeric[1] < (states_per_island - 1):
-                y = convert_numeric_state_to_index(state_numeric + [0, 1, 0])
-                phi_matrix_dict["row"].append(x)
-                phi_matrix_dict["col"].append(y)
+                mrow = convert_numeric_state_to_index(state_numeric + [0, 1, 0])
+                phi_matrix_dict["row"].append(mrow)
+                phi_matrix_dict["col"].append(mcol)
                 phi_matrix_dict["elm"].append(1)
 
         voltage_matrix = sp.coo_matrix(
@@ -67,10 +68,11 @@ class TwinQubitOperatorBuilder:
                 (voltage_matrix_dict["row-col"], voltage_matrix_dict["row-col"]),
             )
         ).tocsr()
+
         phi_matrix = sp.coo_matrix(
             (phi_matrix_dict["elm"], (phi_matrix_dict["row"], phi_matrix_dict["col"]))
         ).tocsr()
 
         logging.debug("🏭 Completed voltage and phase operator building")
 
-        return voltage_matrix, phi_matrix
+        return (voltage_matrix, phi_matrix)

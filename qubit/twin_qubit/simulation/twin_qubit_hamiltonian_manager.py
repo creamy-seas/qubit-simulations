@@ -222,9 +222,9 @@ class TwinQubitHamiltonianManager:
 
         logging.info(
             f"""🏗 Constructed matrix 'hamiltonian_constant' with
-{len(self.hamiltonian_constant['elm']):<10} elements (rest will be evaluated during stage3)
-{len(self.hamiltonian_constant['row']):<10} rows
-{len(self.hamiltonian_constant['col']):<10} cols
+{'elements:':<10}{len(self.hamiltonian_constant['elm'])} (rest will be evaluated during stage3)
+{'rows:':<10}{len(self.hamiltonian_constant['row'])}
+{'cols:':<10}{len(self.hamiltonian_constant['col'])}
 """
         )
 
