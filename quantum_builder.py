@@ -17,6 +17,9 @@ from qubit.twin_qubit.simulation.twin_qubit_operator_builder import (
     TwinQubitOperatorBuilder,
 )
 from qubit.twin_qubit.simulation.twin_qubit_simulator import TwinQubitSimulator
+from qubit.twin_qubit.simulation.twin_qubit_local_fluctuation_simulator import (
+    TwinQubitLocalFluctuationSimulator,
+)
 from qubit.twin_qubit.plotting.twin_qubit_plotter import TwinQubitPlotter
 from qubit.twin_qubit.plotting.twin_qubit_sparse_matrix_visualiser import (
     TwinQubitSparseMatrixVisualiser,
@@ -30,12 +33,18 @@ from qubit.utils.generic_converter import GenericConverter
 class QuantumBuilder:
     @classmethod
     def build_twin_qubit(
-        cls, param_dictionary: Dict, flux_list: List, logging_level: int
+        cls,
+        param_dictionary: Dict,
+        flux_list: List,
+        logging_level: int,
+        other_parameters: Dict = {"empty": "empty"},
     ):
 
         # Load the details into the InitDetails class
         BINDING_SPECS = [
-            TwinQubitInitDetails(param_dictionary, flux_list, logging_level)
+            TwinQubitInitDetails(
+                param_dictionary, flux_list, logging_level, other_parameters
+            )
         ]
 
         # Construct the graph, binding fields of the InitDetails class

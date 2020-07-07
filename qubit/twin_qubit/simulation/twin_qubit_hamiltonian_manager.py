@@ -30,6 +30,8 @@ class TwinQubitHamiltonianManager:
         self.hamiltonian_constant = {}
         self.hamiltonian_flux_dependent = {}
 
+        self.stage1_prepare_hamiltonian_skeleton()
+
     def stage1_prepare_hamiltonian_skeleton(self):
         """
         __ Description __

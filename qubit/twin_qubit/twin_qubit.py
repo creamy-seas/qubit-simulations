@@ -15,6 +15,7 @@ class TwinQubit:
         twin_qubit_plotter,
         twin_qubit_sparse_matrix_visualiser,
         twin_qubit_init_details,
+        twin_qubit_local_fluctuation_simulator,
     ):
         """
         - measured in nm
@@ -31,6 +32,16 @@ class TwinQubit:
     def run_simulation(self, evaluate_dipole_element=False):
         self._twin_qubit_simulator.simulate(evaluate_dipole_element)
         self.simulations = self._twin_qubit_simulator.simulations
+
+    def run_fluctuation_simulations(
+        self, mu: float, sigma: float, number_simulations: int, condition: str
+    ):
+        self._twin_qubit_local_fluctuation_simulator.run_simulation(
+            mu, sigma, number_simulations, condition
+        )
+        self.fluctuation_simulations = (
+            self._twin_qubit_local_fluctuation_simulator.simulations
+        )
 
     def plot_transitions(self, mpl_axes: Axes):
         self._twin_qubit_plotter.plot_transitions(mpl_axes)

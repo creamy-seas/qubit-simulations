@@ -49,7 +49,6 @@ class TwinQubitSimulator:
         self.simulations["eigvecs"] = np.empty(
             (0, self.twin_qubit_state_manager.states_total_number)
         )
-        self.twin_qubit_hamiltonian_manager.stage1_prepare_hamiltonian_skeleton()
         self.twin_qubit_hamiltonian_manager.stage2_prepare_constant_hamiltonian()
         (voltage_matrix, phi_matrix) = self.twin_qubit_operator_builder.build()
 

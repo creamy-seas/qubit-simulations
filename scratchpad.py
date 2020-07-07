@@ -34,30 +34,6 @@ if __name__ == "__main__":
     # utils.save_ree(test.ax, "output/fig2_zoomed_spectrum", "svg")
 
     ###########################################################################
-    #                           Fig 2 full sspectrum                      #
-    ###########################################################################
-    # utils.config_plot_size(0.2, 0.9, 0.15, 0.9)
-    # mpl.rcParams["xtick.labelsize"] = 25
-    # mpl.rcParams["ytick.labelsize"] = 25
-    # mpl.rcParams["axes.labelsize"] = 25
-    # EC = 13.5
-    # EJ = 92
-    # alpha = 1.023
-    # assymetry = 1.011
-    # test = twin(alpha, assymetry, 7, 400, True, False)
-    # test.experimental_data_load(test.ax, False)
-    # test.prepare_operators()
-    # test.override_parameters(EC, EJ, alpha, assymetry)
-    # test.simulate([True, False])
-    # test.plot_simulation(test.ax)
-    # test.ax.set_xlim([-3, 3])
-    # test.ax.set_xticks([-2, -1, 0, 1, 2])
-    # test.ax.set_ylim([8, 20])
-    # test.ax.set_xlabel("Normalized Magnetic Flux ($\Phi/\Phi_0$)")
-    # test.ax.set_ylabel("$\omega/2\pi$ (GHz)")
-    # utils.save_ree(test.ax, "output/fig2_spectrum", "svg")
-
-    ###########################################################################
     #                                  Fig 3                                  #
     ###########################################################################
     utils.config_plot_size(0.2, 0.9, 0.15, 0.9)

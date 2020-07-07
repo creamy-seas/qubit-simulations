@@ -1,9 +1,6 @@
 class DataLoader(object):
     """Load data in from file"""
 
-    def __init__(self):
-        super(DataLoader, self).__init__()
-
     def experimental_data_load(self, mpl_axes, set_flux_list):
         """
         __ Parameters __
@@ -18,7 +15,6 @@ class DataLoader(object):
 
         Plots and finds differences between simulation and experiment
         """
-        logging.debug("'experimental_data_load' Importing data files")
 
         # 1 - data files to load
         base_data_name = "data/Qubit15_5JJ_Q2_"
@@ -118,93 +114,89 @@ class DataLoader(object):
 
         logging.debug("'experimental_data_load' finished")
 
+    # def import_and_sort_array(self, file_name, i):
+    #     """
+    #     __ Parameters __
+    #     file_name: file to import, with path and extensions
+    #     i: column to sort by
 
-            def import_and_sort_array(self, file_name, i):
-        """
-        __ Parameters __
-        file_name: file to import, with path and extensions
-        i: column to sort by
+    #     __ Description __
+    #     Import the 2D array and sort by the i-th column
 
-        __ Description __
-        Import the 2D array and sort by the i-th column
+    #     __ Return __
+    #     return the sorted array
+    #     """
 
-        __ Return __
-        return the sorted array
-        """
+    #     # 1 - import array
+    #     array_to_return = np.loadtxt(file_name).transpose()
 
-        # 1 - import array
-        array_to_return = np.loadtxt(file_name).transpose()
+    #     # 2 - sort array by the i-th column
+    #     sorted_index = np.argsort(array_to_return[i])
+    #     array_to_return[0] = np.array(array_to_return[0])[sorted_index]
+    #     array_to_return[1] = np.array(array_to_return[1])[sorted_index]
 
-        # 2 - sort array by the i-th column
-        sorted_index = np.argsort(array_to_return[i])
-        array_to_return[0] = np.array(array_to_return[0])[sorted_index]
-        array_to_return[1] = np.array(array_to_return[1])[sorted_index]
+    #     return array_to_return
 
-        return array_to_return
+    # def sort_array(self, array_to_sort, column_to_sort_by):
+    #     """
+    #     __ Parameters __
+    #     array_to_sort: array to perform sorting for
+    #     column_to_sort_by: which column to use for sorting
 
-    def sort_array(self, array_to_sort, column_to_sort_by):
-        """
-        __ Parameters __
-        array_to_sort: array to perform sorting for
-        column_to_sort_by: which column to use for sorting
+    #     __ Description __
+    #     sorts the supplied array
+    #     """
+    #     # 1 - sort array by the i-th column
+    #     sorted_index = np.argsort(array_to_sort[column_to_sort_by])
+    #     for i in range(0, len(array_to_sort)):
+    #         array_to_sort[i] = np.array(array_to_sort[i])[sorted_index]
+    #     return array_to_sort
 
-        __ Description __
-        sorts the supplied array
-        """
-        # 1 - sort array by the i-th column
-        sorted_index = np.argsort(array_to_sort[column_to_sort_by])
-        for i in range(0, len(array_to_sort)):
-            array_to_sort[i] = np.array(array_to_sort[i])[sorted_index]
-        return array_to_sort
+    # def import_transmission_spectrum(self, file_name, plot_axes, plot_list):
+    #     """Fiel should have the format
 
+    #     # no_of_x_col by no_of_y_col
+    #     xCol(field) yCol(freq) zCol(tranmission)
 
+    #     __ Parameters __
 
-        def import_transmission_spectrum(self, file_name, plot_axes, plot_list):
-        """Fiel should have the format
+    #     plot_list: list of the field points to plot
 
-        # no_of_x_col by no_of_y_col
-        xCol(field) yCol(freq) zCol(tranmission)
+    #     *** Format is ***
+    #     # no-of-xCol by no-of-yCol
+    #     xCol(field) yCol(freq) zCol(transmission)
 
-        __ Parameters __
+    #     __ Description __
+    #     Import the transmission array, supplied as a commented file. The comment
+    #     must specify the number of field points used
+    #     """
 
+    #     logging.debug("Importing transmission data file '{file_name}'")
 
-        plot_list: list of the field points to plot
+    #     with open(file_name) as fin:
+    #         first_line = fin.readline()
 
-        *** Format is ***
-        # no-of-xCol by no-of-yCol
-        xCol(field) yCol(freq) zCol(transmission)
+    #     no_field_points = int(first_line.split()[1])
+    #     no_freq_points = int(first_line.split()[3])
+    #     logging.debug(
+    #         f"{no_field_points} field points and {no_freq_points} frequency points"
+    #     )
 
-        __ Description __
-        Import the transmission array, supplied as a commented file. The comment
-        must specify the number of field points used
-        """
+    #     transmission_array = np.vsplit(np.loadtxt(file_name), no_field_points)
+    #     for i in range(0, len(transmission_array)):
+    #         transmission_array[i] = transmission_array[i].transpose()
 
-        logging.debug("Importing transmission data file '{file_name}'")
+    #     if self.plot_or_not:
+    #         logging.debug("Plotting, cos why not")
+    #         for i in plot_list:
+    #             if (i < 0) or (i >= len(transmission_array)):
+    #                 raise ValueError(
+    #                     "{i} is outside the allowed field values [0:{no_field_points}]"
+    #                 )
 
-        with open(file_name) as fin:
-            first_line = fin.readline()
+    #             plot_axes.plot(transmission_array[i][1], transmission_array[i][2])
+    #     logging.debug("==> 'import_transmission_spectrum' finished")
 
-        no_field_points = int(first_line.split()[1])
-        no_freq_points = int(first_line.split()[3])
-        logging.debug(
-            f"{no_field_points} field points and {no_freq_points} frequency points"
-        )
-
-        transmission_array = np.vsplit(np.loadtxt(file_name), no_field_points)
-        for i in range(0, len(transmission_array)):
-            transmission_array[i] = transmission_array[i].transpose()
-
-        if self.plot_or_not:
-            logging.debug("Plotting, cos why not")
-            for i in plot_list:
-                if (i < 0) or (i >= len(transmission_array)):
-                    raise ValueError(
-                        "{i} is outside the allowed field values [0:{no_field_points}]"
-                    )
-
-                plot_axes.plot(transmission_array[i][1], transmission_array[i][2])
-        logging.debug("==> 'import_transmission_spectrum' finished")
-
-    def save_plot(self, mpl_axes, filename, dpi=100):
-        mpl_axes.set_facecolor("white")
-        plt.savefig(f"output/{filename}.png", dpi=dpi)
+    # def save_plot(self, mpl_axes, filename, dpi=100):
+    #     mpl_axes.set_facecolor("white")
+    #     plt.savefig(f"output/{filename}.png", dpi=dpi)
