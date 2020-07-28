@@ -52,7 +52,8 @@ class TwinQubitOperatorBuilder:
 
             voltage_matrix_dict["row-col"].append(mcol)
             voltage_matrix_dict["elm"].append(
-                voltage_constant * np.dot(state_cp, [1, 2, 1])
+                # voltage_constant *
+                np.dot(state_cp, [0, 1, 0])
             )
 
             # 4 - phase operator e^{i phi_20}
