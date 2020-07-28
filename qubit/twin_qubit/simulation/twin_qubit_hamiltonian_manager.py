@@ -1,3 +1,8 @@
+"""Build Hamiltonian for simulation
+- Assumption that phi_l = phi_r * η
+- Therefore for a 2D simulation, see the separate class that allows for separate fluxes
+"""
+
 from functools import partial
 from functools import reduce
 import operator
@@ -10,7 +15,6 @@ import scipy.sparse as sp
 
 
 class TwinQubitHamiltonianManager:
-    """Builds and stores a custom Hamiltonian for the twin qubit"""
 
     @pinject.copy_args_to_public_fields
     def __init__(
@@ -50,6 +54,7 @@ class TwinQubitHamiltonianManager:
         |--------------------+-------------------------------|
         """
 
+        # Definind tools used here ############################################
         capacitance_mat_inv = self.twin_qubit_constant_manager.capacitance_mat_inv
         states_per_island = self.twin_qubit_state_manager.states_per_island
         states_total_number = self.twin_qubit_state_manager.states_total_number

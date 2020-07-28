@@ -24,6 +24,9 @@ from qubit.twin_qubit.plotting.twin_qubit_plotter import TwinQubitPlotter
 from qubit.twin_qubit.plotting.twin_qubit_sparse_matrix_visualiser import (
     TwinQubitSparseMatrixVisualiser,
 )
+from qubit.twin_qubit.simulation.twin_qubit_simulator_phil_phir import (
+    TwinQubitSimulatorPhilPhir,
+)
 
 from qubit.utils.quantum_constants import QuantumConstants
 from qubit.utils.quantum_logger import QuantumLogger

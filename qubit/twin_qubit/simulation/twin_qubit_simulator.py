@@ -43,7 +43,6 @@ class TwinQubitSimulator:
         3 - plot out the spectrum
         """
 
-        # ⦿ Reset for simulation
         self.simulations = defaultdict(list)
         self.simulations["eigvals"] = np.empty((0, 3))
         self.simulations["eigvecs"] = np.empty(
