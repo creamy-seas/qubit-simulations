@@ -11,6 +11,7 @@ class TwinQubit:
         self,
         quantum_logger,
         twin_qubit_constant_manager,
+        twin_qubit_operator_builder,
         twin_qubit_simulator,
         twin_qubit_plotter,
         twin_qubit_sparse_matrix_visualiser,

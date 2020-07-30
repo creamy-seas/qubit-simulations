@@ -84,12 +84,22 @@ class TwinQubitSimulatorPhilPhir:
                 (eigvals, eigvecs) = eigsh(
                     self.twin_qubit_hamiltonian_manager.hamiltonian_simulation,
                     number_of_levels_to_simulate,
-                    which="SA",
+                    # which="SA",
+                    which="SR",
                     tol=0,
                 )
                 (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
                     eigvals, eigvecs
                 )
+                # print(phi_l)
+                # print(phi_r)
+                # print(phi_l_adjusted)
+                # print(phi_r_adjusted)
+                # print(eigvals[0])
+                # print(eigvecs[0])
+                # import sys
+
+                # sys.exit("🐙")
 
                 simulation_dictionary = self.store_results(
                     simulation_dictionary, eigvals, eigvecs, phi_l_idx, phi_r_idx
@@ -99,7 +109,7 @@ class TwinQubitSimulatorPhilPhir:
                     simulation_dictionary, eigvecs, voltage_matrix, phi_l_idx, phi_r_idx
                 )
 
-                progress_bar.update()
+                # progress_bar.update()
 
         logging.info("💻 Simulation completed")
         return simulation_dictionary
