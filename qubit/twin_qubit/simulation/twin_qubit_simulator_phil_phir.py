@@ -77,10 +77,11 @@ class TwinQubitSimulatorPhilPhir:
                     phi_l_adjusted = phi_l
                     phi_r_adjusted = phi_r
 
+                phi_l_adjusted = 0
+                phi_r_adjusted = 0
                 self.twin_qubit_hamiltonian_manager.stage3_build_hamiltonian_for_simulation(
                     phi_l_adjusted, phi_r_adjusted
                 )
-
                 (eigvals, eigvecs) = eigsh(
                     self.twin_qubit_hamiltonian_manager.hamiltonian_simulation,
                     number_of_levels_to_simulate,
@@ -91,15 +92,21 @@ class TwinQubitSimulatorPhilPhir:
                 (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
                     eigvals, eigvecs
                 )
+
+                print(phi_l_adjusted)
+                print(phi_r_adjusted)
+                print(self.twin_qubit_hamiltonian_manager.hamiltonian_simulation)
+                print(eigvals)
+
                 # print(phi_l)
                 # print(phi_r)
                 # print(phi_l_adjusted)
                 # print(phi_r_adjusted)
                 # print(eigvals[0])
                 # print(eigvecs[0])
-                # import sys
+                import sys
 
-                # sys.exit("🐙")
+                sys.exit("🐙")
 
                 simulation_dictionary = self.store_results(
                     simulation_dictionary, eigvals, eigvecs, phi_l_idx, phi_r_idx
@@ -132,8 +139,7 @@ class TwinQubitSimulatorPhilPhir:
         phi_l_idx: int,
         phi_r_idx: int,
     ) -> Dict:
-        """Save the eigenvalues and eigenvector results to a dictionary
-        """
+        """Save the eigenvalues and eigenvector results to a dictionary"""
 
         simulation_dictionary["eigvals"][phi_l_idx][phi_r_idx] = eigvals
         for (idx, vec) in enumerate(eigvecs):

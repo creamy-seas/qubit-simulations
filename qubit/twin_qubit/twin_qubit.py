@@ -18,6 +18,7 @@ class TwinQubit:
         twin_qubit_init_details,
         twin_qubit_local_fluctuation_simulator,
         twin_qubit_simulator_phil_phir,
+            twin_qubit_hamiltonian_manager
     ):
         """
         - measured in nm
