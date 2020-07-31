@@ -1,5 +1,9 @@
 """This simulator steps indendently across phi_r and phi_l
 to evalute the transition energies into a grid
+
+Well, I learnt about a trap
+scipy.linalg.eig and eigh are exact, while
+scipy.sparse.linalg eigs and eigh are approximation - which are worse than the MatLab ones
 """
 import itertools
 from collections import defaultdict
@@ -8,7 +12,7 @@ import logging
 
 from pyprind import ProgBar
 import numpy as np
-from scipy.sparse.linalg import eigsh
+import scipy
 import scipy.sparse as sp
 
 import pinject
@@ -32,6 +36,7 @@ class TwinQubitSimulatorPhilPhir:
         phi_r_list: List[float],
         number_of_levels_to_simulate: int,
         phil_phir_coordinates_supplied: bool = False,
+        use_sparse_matrix:bool =True
     ) -> Dict:
         """
         __ Parameters __
@@ -41,6 +46,8 @@ class TwinQubitSimulatorPhilPhir:
                         phi_r <-> phi_plus
 
         in that case, a coordinate trasnformation will be required
+        [bool] use_sparse_matrix:                               whether to use the approximated faster evaluation for
+                                                        eigenvalues and eigenvectors
 
         __ Description __
         Method performs the eigenvalue simulations:
@@ -77,36 +84,35 @@ class TwinQubitSimulatorPhilPhir:
                     phi_l_adjusted = phi_l
                     phi_r_adjusted = phi_r
 
-                phi_l_adjusted = 0
-                phi_r_adjusted = 0
                 self.twin_qubit_hamiltonian_manager.stage3_build_hamiltonian_for_simulation(
                     phi_l_adjusted, phi_r_adjusted
                 )
-                (eigvals, eigvecs) = eigsh(
-                    self.twin_qubit_hamiltonian_manager.hamiltonian_simulation,
-                    number_of_levels_to_simulate,
-                    # which="SA",
-                    which="SR",
-                    tol=0,
-                )
-                (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
-                    eigvals, eigvecs
-                )
 
-                print(phi_l_adjusted)
-                print(phi_r_adjusted)
-                print(self.twin_qubit_hamiltonian_manager.hamiltonian_simulation)
-                print(eigvals)
-
-                # print(phi_l)
-                # print(phi_r)
-                # print(phi_l_adjusted)
-                # print(phi_r_adjusted)
-                # print(eigvals[0])
-                # print(eigvecs[0])
-                import sys
-
-                sys.exit("🐙")
+                ###############################################################
+                #                    h stands for Hermetian                   #
+                ###############################################################
+                if use_sparse_matrix:
+                    # Approximation - may not be valid ########################
+                    (eigvals, eigvecs) = scipy.sparse.linalg.eigsh(
+                        self.twin_qubit_hamiltonian_manager.hamiltonian_simulation,
+                        number_of_levels_to_simulate,
+                        # which="SA",
+                        which="SR",
+                        tol=0,
+                    )
+                    (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
+                        eigvals, eigvecs
+                    )
+                else:
+                    # Exact, but slow #########################################
+                    (eigvals, eigvecs) = scipy.linalg.eig(
+                        self.twin_qubit_hamiltonian_manager.hamiltonian_simulation.todense(),
+                    )
+                    (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
+                        eigvals, eigvecs
+                    )
+                    eigvals = eigvals[:number_of_levels_to_simulate]
+                    eigvecs = eigvecs[:number_of_levels_to_simulate, :]
 
                 simulation_dictionary = self.store_results(
                     simulation_dictionary, eigvals, eigvecs, phi_l_idx, phi_r_idx
@@ -116,7 +122,7 @@ class TwinQubitSimulatorPhilPhir:
                     simulation_dictionary, eigvecs, voltage_matrix, phi_l_idx, phi_r_idx
                 )
 
-                # progress_bar.update()
+                progress_bar.update()
 
         logging.info("💻 Simulation completed")
         return simulation_dictionary
@@ -142,8 +148,8 @@ class TwinQubitSimulatorPhilPhir:
         """Save the eigenvalues and eigenvector results to a dictionary"""
 
         simulation_dictionary["eigvals"][phi_l_idx][phi_r_idx] = eigvals
-        for (idx, vec) in enumerate(eigvecs):
-            simulation_dictionary["eigvecs"][phi_l_idx][phi_r_idx][idx] = vec
+        # for (idx, vec) in enumerate(eigvecs):
+        #     simulation_dictionary["eigvecs"][phi_l_idx][phi_r_idx][idx] = vec
         # simulation_dictionary["0-1"][phi_l_idx][phi_r_idx] = eigvals[1] - eigvals[0]
         # simulation_dictionary["1-2"][phi_l_idx][phi_r_idx] = eigvals[2] - eigvals[1]
 
