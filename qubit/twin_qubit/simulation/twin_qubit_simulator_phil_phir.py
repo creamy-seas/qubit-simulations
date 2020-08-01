@@ -125,12 +125,6 @@ class TwinQubitSimulatorPhilPhir:
                 simulation_dictionary = self.evaluate_dipole_element_and_store(
                     simulation_dictionary, eigvecs, voltage_matrix, phi_l_idx, phi_r_idx
                 )
-                print(f"Eigenvalues: {eigvals}")
-                print(f"Eigven0: {eigvecs[0]}")
-                print(f"Eigven1: {eigvecs[1]}")
-                print(f"Eigven2: {eigvecs[2]}")
-                # import sys
-                # sys.exit("🐙")
 
                 progress_bar.update()
 
@@ -175,7 +169,7 @@ class TwinQubitSimulatorPhilPhir:
     ) -> Dict:
 
         for (i, j) in itertools.combinations(range(0, len(eigvecs)), 2):
-            matrix_element = eigvecs[i].dot(voltage_matrix.dot(eigvecs[j])) *2
+            matrix_element = eigvecs[i].dot(voltage_matrix.dot(eigvecs[j]))
             simulation_dictionary[f"d{i}-{j}"][phi_l_idx][phi_r_idx] = np.abs(
                 matrix_element
             )

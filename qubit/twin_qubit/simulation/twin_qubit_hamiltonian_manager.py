@@ -205,9 +205,16 @@ class TwinQubitHamiltonianManager:
         self.hamiltonian_constant["elm"] = np.hstack(
             (
                 EC * self.hamiltonian_skeleton["charge"]["elm"],
-                -EJ / 2 * self.hamiltonian_skeleton["phi1"]["elm"],
-                -alpha * EJ / 2 * self.hamiltonian_skeleton["phi2"]["elm"],
-                -EJ / 2 * self.hamiltonian_skeleton["phi3"]["elm"],
+                # [100000] * len(self.hamiltonian_skeleton["charge"]["elm"]),
+                -EJ / 2
+                # 100001
+                * self.hamiltonian_skeleton["phi1"]["elm"],
+                -alpha * EJ / 2
+                # 100002
+                * self.hamiltonian_skeleton["phi2"]["elm"],
+                -EJ / 2
+                # 100003
+                * self.hamiltonian_skeleton["phi3"]["elm"],
             )
         )
 
@@ -265,18 +272,23 @@ class TwinQubitHamiltonianManager:
                 -EJ
                 / 2
                 * np.exp(-1j * phi_external)
+                # 100009
                 * self.hamiltonian_skeleton["+phi1-phi2+phiExt"]["elm"],
                 -EJ
                 / 2
                 * np.exp(+1j * phi_external)
+                # 100009
                 * self.hamiltonian_skeleton["-phi1+phi2-phiExt"]["elm"],
                 -EJ
                 / 2
+
                 * np.exp(-1j * phi_external_assymetric)
+                # 100008
                 * self.hamiltonian_skeleton["-phi2+phi3-nphiExt"]["elm"],
                 -EJ
                 / 2
                 * np.exp(+1j * phi_external_assymetric)
+                # 100008
                 * self.hamiltonian_skeleton["+phi2-phi3+nphiExt"]["elm"],
             )
         )
