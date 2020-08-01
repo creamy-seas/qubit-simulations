@@ -59,7 +59,8 @@ class TwinQubitSimulatorPhilPhir:
 
         simulation_dictionary = defaultdict(lambda: np.empty((dim_l, dim_r, 1)))
         simulation_dictionary["eigvals"] = np.empty(
-            (dim_l, dim_r, number_of_levels_to_simulate)
+            (dim_l, dim_r, number_of_levels_to_simulate),
+            dtype=np.csingle
         )
         simulation_dictionary["eigvecs"] = np.empty(
             (
@@ -67,7 +68,8 @@ class TwinQubitSimulatorPhilPhir:
                 dim_r,
                 number_of_levels_to_simulate,
                 self.twin_qubit_state_manager.states_total_number,
-            )
+            ),
+            dtype=np.csingle
         )
 
         self.twin_qubit_hamiltonian_manager.stage2_prepare_constant_hamiltonian()
@@ -84,6 +86,8 @@ class TwinQubitSimulatorPhilPhir:
                     phi_l_adjusted = phi_l
                     phi_r_adjusted = phi_r
 
+                # phi_l_adjusted = 0
+                # phi_r_adjusted = 0
                 self.twin_qubit_hamiltonian_manager.stage3_build_hamiltonian_for_simulation(
                     phi_l_adjusted, phi_r_adjusted
                 )
@@ -105,7 +109,7 @@ class TwinQubitSimulatorPhilPhir:
                     )
                 else:
                     # Exact, but slow #########################################
-                    (eigvals, eigvecs) = scipy.linalg.eig(
+                    (eigvals, eigvecs) = scipy.linalg.eigh(
                         self.twin_qubit_hamiltonian_manager.hamiltonian_simulation.todense(),
                     )
                     (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
@@ -121,6 +125,12 @@ class TwinQubitSimulatorPhilPhir:
                 simulation_dictionary = self.evaluate_dipole_element_and_store(
                     simulation_dictionary, eigvecs, voltage_matrix, phi_l_idx, phi_r_idx
                 )
+                print(f"Eigenvalues: {eigvals}")
+                print(f"Eigven0: {eigvecs[0]}")
+                print(f"Eigven1: {eigvecs[1]}")
+                print(f"Eigven2: {eigvecs[2]}")
+                # import sys
+                # sys.exit("🐙")
 
                 progress_bar.update()
 
@@ -164,11 +174,14 @@ class TwinQubitSimulatorPhilPhir:
         phi_r_idx: int,
     ) -> Dict:
 
-        for (i, j) in itertools.permutations(range(0, len(eigvecs)), 2):
-            matrix_element = eigvecs[i].dot(voltage_matrix.dot(eigvecs[j]))
+        for (i, j) in itertools.combinations(range(0, len(eigvecs)), 2):
+            matrix_element = eigvecs[i].dot(voltage_matrix.dot(eigvecs[j])) *2
             simulation_dictionary[f"d{i}-{j}"][phi_l_idx][phi_r_idx] = np.abs(
                 matrix_element
             )
+            # print(f"i={i}")
+            # print(f"i={j}")
+            # print(f"matrix_element={matrix_element}")
 
         return simulation_dictionary
         # simulation_dictionary["d01-beta"] = simulation_dictionary["d01-beta"].append(
