@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import Tuple
 import logging
+import itertools
 
 from pyprind import ProgBar
 import numpy as np
@@ -31,7 +32,9 @@ class TwinQubitSimulator:
 
         return (phi_external, phi_external_assymetric)
 
-    def simulate(self, evaluate_dipole_element=False):
+    def simulate(self, 
+                 number_of_levels_to_simulate: int,
+                 evaluate_dipole_element=False):
         """
         __ Parameters __
         [bool] evaluate_dipole_element:   expectation values for the dipole
@@ -42,14 +45,14 @@ class TwinQubitSimulator:
         2 - evaluate the lowest eigenstate and eigenenergies of the Hamiltonian
         3 - plot out the spectrum
         """
-
+        
         self.simulations = defaultdict(list)
-        self.simulations["eigvals"] = np.empty((0, 3))
+        self.simulations["eigvals"] = np.empty((0, number_of_levels_to_simulate))
         self.simulations["eigvecs"] = np.empty(
             (0, self.twin_qubit_state_manager.states_total_number)
         )
         self.twin_qubit_hamiltonian_manager.stage2_prepare_constant_hamiltonian()
-        (voltage_matrix, phi_matrix) = self.twin_qubit_operator_builder.build()
+        (voltage_matrix, voltage_scaling_constant, _) = self.twin_qubit_operator_builder.build()
 
         logging.info("💻 Running simulation")
         progress_bar = ProgBar(len(self.flux_list), bar_char="█")
@@ -65,7 +68,7 @@ class TwinQubitSimulator:
 
             (eigvals, eigvecs) = eigsh(
                 self.twin_qubit_hamiltonian_manager.hamiltonian_simulation,
-                3,
+                number_of_levels_to_simulate,
                 which="SA",
                 tol=0,
             )
@@ -74,11 +77,12 @@ class TwinQubitSimulator:
             self.append_results(eigvals, eigvecs)
 
             if evaluate_dipole_element:
-                self.evaluate_dipole_element_and_append(eigvecs, voltage_matrix)
+                self.evaluate_dipole_element_and_append(eigvecs, voltage_matrix, voltage_scaling_constant)
 
             progress_bar.update()
 
         logging.info("💻 Simulation completed")
+        return self.simulations
 
     @staticmethod
     def sort_in_ascending_eigval_order(
@@ -97,26 +101,14 @@ class TwinQubitSimulator:
         self.simulations["2-3"].append(eigvals[2] - eigvals[1])
 
     def evaluate_dipole_element_and_append(
-        self, eigvecs: np.array, voltage_matrix: sp.csr_matrix
+        self, eigvecs: np.array, voltage_matrix: sp.csr_matrix, voltage_scaling_constant: float
     ):
-        state1 = eigvecs[0]
-        state2 = eigvecs[1]
-        state3 = eigvecs[2]
-
-        d21 = np.conjugate(state2).dot(
-                voltage_matrix.dot(state1)
+        for (i, j) in itertools.combinations(range(0, len(eigvecs)), 2):
+            matrix_element = np.conjugate(eigvecs[i]).dot(
+                voltage_matrix.dot(eigvecs[j])
             )
-        d32 = np.conjugate(state3).dot(
-                voltage_matrix.dot(state2)
+            self.simulations[f"d{i}-{j}"].append(
+                    np.abs(
+                    matrix_element
+                ) * voltage_scaling_constant
             )
-        d13 = np.conjugate(state1).dot(
-                voltage_matrix.dot(state3)
-            )
-        
-        self.simulations["d21"].append(np.abs(d21))
-        self.simulations["d32"].append(np.abs(d32))
-        self.simulations["d13"].append(np.abs(d13))
-
-        # self.simulations["d21-beta"] = self.simulations["d21-beta"].append(
-        #     np.abs(d13 / (self.quantum_constants.phi0 * self.simulations["1-2"][-1]))
-        # )

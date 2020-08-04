@@ -39,13 +39,12 @@ class TwinQubitOperatorBuilder:
 
         voltage_matrix_dict = defaultdict(list)
         phi_matrix_dict = defaultdict(list)
-        voltage_constant = (
+        voltage_scaling_constant = (
             EC
             / (2 * (1 + alpha))
-            # Commented out, since we are working in these units
-            # * self.quantum_constants.h
-            # * 10 ** 9
-            # / self.quantum_constants.eCharge
+            * self.quantum_constants.h
+            * 10 ** 9
+            / self.quantum_constants.eCharge
         )
 
         for mcol in range(0, states_total_number):
@@ -55,7 +54,7 @@ class TwinQubitOperatorBuilder:
             # voltage #########################################################
             voltage_matrix_dict["row-col"].append(mcol)
             voltage_matrix_dict["elm"].append(
-                np.complex(voltage_constant * np.dot(state_cp, [1, 2, 1]))
+                np.complex(np.dot(state_cp, [1, 2, 1]))
             )
             ###################################################################
 
@@ -80,4 +79,4 @@ class TwinQubitOperatorBuilder:
 
         logging.debug("🏭 Completed voltage and phase operator building")
 
-        return (voltage_matrix, phi_matrix)
+        return (voltage_matrix, voltage_scaling_constant, phi_matrix)

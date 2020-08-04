@@ -74,7 +74,7 @@ class TwinQubitSimulatorPhilPhir:
         )
 
         self.twin_qubit_hamiltonian_manager.stage2_prepare_constant_hamiltonian()
-        (voltage_matrix, phi_matrix) = self.twin_qubit_operator_builder.build()
+        (voltage_matrix, voltage_scaling_constant, _) = self.twin_qubit_operator_builder.build()
 
         logging.info("💻 Running simulation")
         progress_bar = ProgBar(dim_1 * dim_2, bar_char="█")
@@ -124,7 +124,8 @@ class TwinQubitSimulatorPhilPhir:
                 )
 
                 simulation_dictionary = self.evaluate_dipole_element_and_store(
-                    simulation_dictionary, eigvecs, voltage_matrix, phi_1_idx, phi_2_idx
+                    simulation_dictionary, eigvecs, voltage_matrix, voltage_scaling_constant,
+                    phi_1_idx, phi_2_idx
                 )
 
                 progress_bar.update()
@@ -165,6 +166,7 @@ class TwinQubitSimulatorPhilPhir:
         simulation_dictionary: Dict,
         eigvecs: np.array,
         voltage_matrix: sp.csr_matrix,
+        voltage_scaling_constant: float,
         phi_1_idx: int,
         phi_2_idx: int,
     ) -> Dict:
@@ -175,6 +177,6 @@ class TwinQubitSimulatorPhilPhir:
             )
             simulation_dictionary[f"d{i}-{j}"][phi_1_idx][phi_2_idx] = np.abs(
                 matrix_element
-            )
+            ) * voltage_scaling_constant
 
         return simulation_dictionary
