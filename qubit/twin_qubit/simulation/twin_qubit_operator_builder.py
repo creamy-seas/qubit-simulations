@@ -42,6 +42,7 @@ class TwinQubitOperatorBuilder:
         voltage_constant = (
             EC
             / (2 * (1 + alpha))
+            # Commented out, since we are working in these units
             # * self.quantum_constants.h
             # * 10 ** 9
             # / self.quantum_constants.eCharge

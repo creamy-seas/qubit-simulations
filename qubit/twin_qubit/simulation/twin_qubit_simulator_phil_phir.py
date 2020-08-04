@@ -94,6 +94,7 @@ class TwinQubitSimulatorPhilPhir:
 
                 ###############################################################
                 #                    h stands for Hermetian                   #
+                # Note - the two methods return vectors as row in once case and columns in the other
                 ###############################################################
                 if use_sparse_matrix:
                     # Approximation - may not be valid ########################
@@ -104,18 +105,17 @@ class TwinQubitSimulatorPhilPhir:
                         which="SR",
                         tol=0,
                     )
-                    # (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
-                    #     eigvals, eigvecs
-                    # )
-                    eigvecs = np.transpose(eigvecs)
+                    (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
+                        eigvals, eigvecs
+                    )
                 else:
                     # Exact, but slow #########################################
                     (eigvals, eigvecs) = scipy.linalg.eigh(
                         self.twin_qubit_hamiltonian_manager.hamiltonian_simulation.todense(),
                     )
-                    # (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
-                    #     eigvals, eigvecs
-                    # )
+                    (eigvals, eigvecs) = self.sort_in_ascending_eigval_order(
+                        eigvals, eigvecs
+                    )
                     eigvals = eigvals[:number_of_levels_to_simulate]
                     eigvecs = eigvecs[:number_of_levels_to_simulate, :]
 

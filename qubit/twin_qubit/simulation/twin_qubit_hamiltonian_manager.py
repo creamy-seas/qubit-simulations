@@ -104,16 +104,16 @@ class TwinQubitHamiltonianManager:
                         state_numeric + [1, -1, 0]
                     )
                     self.hamiltonian_skeleton["+i(phi02-phi01-phi_l)"]["row"] += [
-                        matrix_col
+                        matrix_row
                     ]
                     self.hamiltonian_skeleton["+i(phi02-phi01-phi_l)"]["col"] += [
-                        matrix_row
+                        matrix_col
                     ]
                     self.hamiltonian_skeleton["-i(phi02-phi01-phi_l)"]["row"] += [
-                        matrix_row
+                        matrix_col
                     ]
                     self.hamiltonian_skeleton["-i(phi02-phi01-phi_l)"]["col"] += [
-                        matrix_col
+                        matrix_row
                     ]
 
             if state_numeric[state2] < (states_per_island - 1):
