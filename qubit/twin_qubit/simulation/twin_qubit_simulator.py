@@ -103,10 +103,16 @@ class TwinQubitSimulator:
         state2 = eigvecs[1]
         state3 = eigvecs[2]
 
-        d21 = state2.dot(voltage_matrix.dot(state1))
-        d32 = state3.dot(voltage_matrix.dot(state2))
-        d13 = state1.dot(voltage_matrix.dot(state3))
-
+        d21 = np.conjugate(state2).dot(
+                voltage_matrix.dot(state1)
+            )
+        d32 = np.conjugate(state3).dot(
+                voltage_matrix.dot(state2)
+            )
+        d13 = np.conjugate(state1).dot(
+                voltage_matrix.dot(state3)
+            )
+        
         self.simulations["d21"].append(np.abs(d21))
         self.simulations["d32"].append(np.abs(d32))
         self.simulations["d13"].append(np.abs(d13))
