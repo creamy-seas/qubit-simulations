@@ -54,7 +54,7 @@ class TwinQubitOperatorBuilder:
             # voltage #########################################################
             voltage_matrix_dict["row-col"].append(mcol)
             voltage_matrix_dict["elm"].append(
-                voltage_constant * np.dot(state_cp, [1, 2, 1])
+                np.complex(voltage_constant * np.dot(state_cp, [1, 2, 1]))
             )
             ###################################################################
 

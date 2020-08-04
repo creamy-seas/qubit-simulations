@@ -28,6 +28,17 @@ class TwinQubitSparseMatrixVisualiser(object):
     def visualise_matrix(
         self, mpl_axes,
     ):
+        MY_COLOURS = {
+            "PINK": "#cc2375",
+            "DeepPink4": "#8a154f",
+            "DeepPink3": "#cc2375",
+            "SeaGreen3": "#43cd80",
+            "DodgerBlue4": "#104e8b",
+            "DodgerBlue2": "#1c86ee",
+            "DeepSkyBlue4": "#00688b",
+            "DeepSkyBlue3": "#009acd",
+            "DeepSkyBlue2": "#00bfff",
+        }
 
         plt.rc("text.latex", preamble=r"\usepackage{braket}")
 
@@ -40,14 +51,21 @@ class TwinQubitSparseMatrixVisualiser(object):
         neg_nphiExt_elements = self.generate_csr_matrix("+phi2-phi3+nphiExt")
         pos_nphiExt_elements = self.generate_csr_matrix("-phi2+phi3-nphiExt")
 
+        mpl_axes.spy(phi1_elements, color=MY_COLOURS["DeepSkyBlue3"], markersize=6)
+        mpl_axes.spy(phi2_elements, color=MY_COLOURS["DeepSkyBlue2"], markersize=6)
+        mpl_axes.spy(phi3_elements, color=MY_COLOURS["SeaGreen3"], markersize=6)
+        # mpl_axes.spy(neg_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
+        # mpl_axes.spy(pos_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
+        # mpl_axes.spy(neg_nphiExt_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
+        # mpl_axes.spy(pos_nphiExt_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
         mpl_axes.spy(charge_elements, color="black", markersize=6)
-        mpl_axes.spy(phi1_elements, color="#00688b", markersize=6)
-        mpl_axes.spy(phi2_elements, color="#009acd", markersize=6)
-        mpl_axes.spy(phi3_elements, color="#00bfff", markersize=6)
+        # mpl_axes.spy(phi1_elements, color="#00688b", markersize=6)
+        # mpl_axes.spy(phi2_elements, color="#009acd", markersize=6)
+        # mpl_axes.spy(phi3_elements, color="#00bfff", markersize=6)
         mpl_axes.spy(neg_phiExt_elements, color="#ff2600", markersize=6)
-        mpl_axes.spy(pos_phiExt_elements, color="#ff7f50", markersize=6)
-        mpl_axes.spy(neg_nphiExt_elements, color="#228b22", markersize=6)
-        mpl_axes.spy(pos_nphiExt_elements, color="#adfa2f", markersize=6)
+        mpl_axes.spy(pos_phiExt_elements, color="#ff2600", markersize=6)
+        mpl_axes.spy(neg_nphiExt_elements, color="#ff7f50", markersize=6)
+        mpl_axes.spy(pos_nphiExt_elements, color="#ff7f50", markersize=6)
 
         self.format_axes(mpl_axes)
         # self.add_ticks_to_axes(mpl_axes)
