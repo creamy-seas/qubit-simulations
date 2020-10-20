@@ -62,86 +62,86 @@ confidence=
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
 disable=C0114,R0903,C0103,C0330,E1101,W0613,W1202,W1401,
-	print-statement,
-	parameter-unpacking,
-	F0001,
-	unpacking-in-except,
-	old-raise-syntax,
-	backtick,
-	long-suffix,
-	old-ne-operator,
-	old-octal-literal,
-	import-star-module-level,
-	non-ascii-bytes-literal,
-	raw-checker-failed,
-	bad-inline-option,
-	locally-disabled,
-	file-ignored,
-	suppressed-message,
-	useless-suppression,
-	deprecated-pragma,
-	use-symbolic-message-instead,
-	apply-builtin,
-	basestring-builtin,
-	buffer-builtin,
-	cmp-builtin,
-	coerce-builtin,
-	execfile-builtin,
-	file-builtin,
-	long-builtin,
-	raw_input-builtin,
-	reduce-builtin,
-	standarderror-builtin,
-	unicode-builtin,
-	xrange-builtin,
-	coerce-method,
-	delslice-method,
-	getslice-method,
-	setslice-method,
-	no-absolute-import,
-	old-division,
-	dict-iter-method,
-	dict-view-method,
-	next-method-called,
-	metaclass-assignment,
-	indexing-exception,
-	raising-string,
-	reload-builtin,
-	oct-method,
-	hex-method,
-	nonzero-method,
-	cmp-method,
-	input-builtin,
-	round-builtin,
-	intern-builtin,
-	unichr-builtin,
-	map-builtin-not-iterating,
-	zip-builtin-not-iterating,
-	range-builtin-not-iterating,
-	filter-builtin-not-iterating,
-	using-cmp-argument,
-	eq-without-hash,
-	div-method,
-	idiv-method,
-	rdiv-method,
-	exception-message-attribute,
-	invalid-str-codec,
-	sys-max-int,
-	bad-python3-import,
-	deprecated-string-function,
-	deprecated-str-translate-call,
-	deprecated-itertools-function,
-	deprecated-types-field,
-	next-method-defined,
-	dict-items-not-iterating,
-	dict-keys-not-iterating,
-	dict-values-not-iterating,
-	deprecated-operator-function,
-	deprecated-urllib-function,
-	xreadlines-attribute,
-	deprecated-sys-function,
-	exception-escape,
-	comprehension-escape
+  print-statement,
+  parameter-unpacking,
+  F0001,
+  unpacking-in-except,
+  old-raise-syntax,
+  backtick,
+  long-suffix,
+  old-ne-operator,
+  old-octal-literal,
+  import-star-module-level,
+  non-ascii-bytes-literal,
+  raw-checker-failed,
+  bad-inline-option,
+  locally-disabled,
+  file-ignored,
+  suppressed-message,
+  useless-suppression,
+  deprecated-pragma,
+  use-symbolic-message-instead,
+  apply-builtin,
+  basestring-builtin,
+  buffer-builtin,
+  cmp-builtin,
+  coerce-builtin,
+  execfile-builtin,
+  file-builtin,
+  long-builtin,
+  raw_input-builtin,
+  reduce-builtin,
+  standarderror-builtin,
+  unicode-builtin,
+  xrange-builtin,
+  coerce-method,
+  delslice-method,
+  getslice-method,
+  setslice-method,
+  no-absolute-import,
+  old-division,
+  dict-iter-method,
+  dict-view-method,
+  next-method-called,
+  metaclass-assignment,
+  indexing-exception,
+  raising-string,
+  reload-builtin,
+  oct-method,
+  hex-method,
+  nonzero-method,
+  cmp-method,
+  input-builtin,
+  round-builtin,
+  intern-builtin,
+  unichr-builtin,
+  map-builtin-not-iterating,
+  zip-builtin-not-iterating,
+  range-builtin-not-iterating,
+  filter-builtin-not-iterating,
+  using-cmp-argument,
+  eq-without-hash,
+  div-method,
+  idiv-method,
+  rdiv-method,
+  exception-message-attribute,
+  invalid-str-codec,
+  sys-max-int,
+  bad-python3-import,
+  deprecated-string-function,
+  deprecated-str-translate-call,
+  deprecated-itertools-function,
+  deprecated-types-field,
+  next-method-defined,
+  dict-items-not-iterating,
+  dict-keys-not-iterating,
+  dict-values-not-iterating,
+  deprecated-operator-function,
+  deprecated-urllib-function,
+  xreadlines-attribute,
+  deprecated-sys-function,
+  exception-escape,
+  comprehension-escape
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -293,7 +293,7 @@ allow-global-unused-variables=yes
 # List of strings which can identify a callback function by name. A callback
 # name must start or end with one of those strings.
 callbacks=cb_,
-	  _cb
+    _cb
 
 # A regular expression matching the name of dummy variables (i.e. expected to
 # not be used).
@@ -327,7 +327,7 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
-max-line-length=120
+max-line-length=140
 
 # Maximum number of lines in a module.
 max-module-lines=120
@@ -337,7 +337,7 @@ max-module-lines=120
 # `trailing-comma` allows a space between comma and closing bracket: (a, ).
 # `empty-line` allows space-only lines.
 no-space-check=trailing-comma,
-	       dict-separator
+         dict-separator
 
 # Allow the body of a class to be on the same line as the declaration if body
 # contains single statement.
@@ -381,11 +381,11 @@ attr-naming-style=snake_case
 
 # Bad variable names which should always be refused, separated by a comma.
 bad-names=foo,
-	  bar,
-	  baz,
-	  toto,
-	  tutu,
-	  tata
+    bar,
+    baz,
+    toto,
+    tutu,
+    tata
 
 # Naming style matching correct class attribute names.
 class-attribute-naming-style=any
@@ -421,11 +421,11 @@ function-naming-style=snake_case
 
 # Good variable names which should always be accepted, separated by a comma.
 good-names=i,
-	   j,
-	   k,
-	   ex,
-	   Run,
-	   _
+     j,
+     k,
+     ex,
+     Run,
+     _
 
 # Include a hint for the correct naming format with invalid-name.
 include-naming-hint=no
@@ -524,17 +524,17 @@ preferred-modules=
 
 # List of method names used to declare (i.e. assign) instance attributes.
 defining-attr-methods=__init__,
-		      __new__,
-		      setUp,
-		      __post_init__
+          __new__,
+          setUp,
+          __post_init__
 
 # List of member names, which should be excluded from the protected access
 # warning.
 exclude-protected=_asdict,
-		  _fields,
-		  _replace,
-		  _source,
-		  _make
+      _fields,
+      _replace,
+      _source,
+      _make
 
 # List of valid names for the first argument in a class method.
 valid-classmethod-first-arg=cls
@@ -581,4 +581,4 @@ min-public-methods=2
 # Exceptions that will emit a warning when being caught. Defaults to
 # "BaseException, Exception".
 overgeneral-exceptions=BaseException,
-		       Exception
+           Exception

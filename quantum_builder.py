@@ -6,6 +6,7 @@ from typing import Dict, List
 
 import pinject
 
+# Twin Qubit ##################################################################
 from qubit.twin_qubit.twin_qubit import TwinQubit
 from qubit.twin_qubit.twin_qubit_init_details import TwinQubitInitDetails
 from qubit.twin_qubit.cellar.twin_qubit_constant_manager import TwinQubitConstantManager
@@ -28,6 +29,20 @@ from qubit.twin_qubit.simulation.twin_qubit_simulator_phil_phir import (
     TwinQubitSimulatorPhilPhir,
 )
 
+# Transmon Qubit ##############################################################
+from qubit.transmon_qubit.transmon_qubit import TransmonQubit
+from qubit.transmon_qubit.transmon_qubit_init_details import TransmonQubitInitDetails
+from qubit.transmon_qubit.cellar.transmon_qubit_constant_manager import (
+    TransmonQubitConstantManager,
+)
+from qubit.transmon_qubit.simulation.transmon_qubit_hamiltonian_manager import (
+    TransmonQubitHamiltonianManager,
+)
+from qubit.transmon_qubit.simulation.transmon_qubit_simulator import (
+    TransmonQubitSimulator,
+)
+
+# Common ######################################################################
 from qubit.utils.quantum_constants import QuantumConstants
 from qubit.utils.quantum_logger import QuantumLogger
 from qubit.utils.generic_converter import GenericConverter
@@ -57,3 +72,17 @@ class QuantumBuilder:
         TWIN_QUBIT = OBJ_GRAPH.provide(TwinQubit)
 
         return TWIN_QUBIT
+
+    @classmethod
+    def build_transmon_qubit(
+        cls, param_dictionary: Dict, logging_level: int,
+    ):
+
+        # Load the details into the InitDetails class
+        BINDING_SPECS = [TransmonQubitInitDetails(param_dictionary, logging_level)]
+
+        # Construct the graph, binding fields of the InitDetails class
+        OBJ_GRAPH = pinject.new_object_graph(binding_specs=BINDING_SPECS)
+
+        # Perform the build
+        return OBJ_GRAPH.provide(TransmonQubit)
