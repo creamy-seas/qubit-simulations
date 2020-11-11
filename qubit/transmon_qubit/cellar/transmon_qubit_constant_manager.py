@@ -32,9 +32,11 @@ class TransmonQubitConstantManager:
             self.C_sigma = self.C_gate + 2 * self.C_jj + self.C_transmon
 
             self.EC = self.evaluate_EC(self.C_sigma)
-            (self.EJ0, self.critical_current, self.resistance_jj) = self.evaluate_EJ0_and_critical_current(
-                self.jj_squares
-            )
+            (
+                self.EJ0,
+                self.critical_current,
+                self.resistance_jj,
+            ) = self.evaluate_EJ0_and_critical_current(self.jj_squares)
 
             self.print_constants()
 
@@ -44,7 +46,8 @@ class TransmonQubitConstantManager:
             )
             sys.exit()
 
-    def evaluate_C_jj(self, jj_squares: int) -> float:
+    @staticmethod
+    def evaluate_C_jj(jj_squares: int) -> float:
         PERMITIVITY_ALOX = 10
         PERMITIVITY_VACUUM = 8.85 * 10 ** (-12)
         CAPACITANCE_AREA_FACTOR = 1.15
@@ -76,7 +79,7 @@ class TransmonQubitConstantManager:
 
         TRANSITION_ALUMINIUM = 1.3
         DELTA_ALUMINIUM = 1.73 * self.quantum_constants.kb * TRANSITION_ALUMINIUM
-        ALUMINIUM_OXIDE_SHEET_RESISTANCE = 1.84 * 10 ** (3)
+        ALUMINIUM_OXIDE_SHEET_RESISTANCE = 3.57 * 10 ** (3)
 
         resistance_jj = ALUMINIUM_OXIDE_SHEET_RESISTANCE / jj_squares
 
@@ -135,7 +138,7 @@ class TransmonQubitConstantManager:
 
 -----Raw Parameters-----
 {'number_of_charge_states:':<50}{self.number_of_charge_states}
-{'jj_squares:':<50}{self.jj_squares}
+{'jj_squares:':<50}{self.jj_squares:.2f} (fF)
 {'C_transmon:':<50}{self.C_transmon * 10**15:.2f} (fF)
 {'C_gate:':<50}{self.C_gate * 10**15:.2f} (fF)
 
