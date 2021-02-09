@@ -15,10 +15,10 @@ class TwinQubit:
         twin_qubit_simulator,
         twin_qubit_plotter,
         twin_qubit_sparse_matrix_visualiser,
-        twin_qubit_init_details,
+        init_details,
         twin_qubit_local_fluctuation_simulator,
         twin_qubit_simulator_phil_phir,
-            twin_qubit_hamiltonian_manager
+        twin_qubit_hamiltonian_manager,
     ):
         """
         - measured in nm
@@ -26,7 +26,6 @@ class TwinQubit:
         - working in unit of Phi0
         """
         self.simulations = None
-        self.flux_list = twin_qubit_init_details.flux_list
 
     def override_parameters(self, EC=None, EJ=None, alpha=None, assymetry=None):
         self.twin_qubit_constant_manager.override_parameters(EC, EJ, alpha, assymetry)

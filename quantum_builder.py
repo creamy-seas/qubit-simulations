@@ -8,7 +8,6 @@ import pinject
 
 # CQPS qubit ##################################################################
 from qubit.cqps_qubit.cqps_qubit import CqpsQubit
-from qubit.cqps_qubit.cqps_qubit_init_details import CqpsQubitInitDetails
 from qubit.cqps_qubit.cellar.cqps_qubit_constant_manager import CqpsQubitConstantManager
 from qubit.cqps_qubit.simulation.cqps_qubit_hamiltonian_manager import (
     CqpsQubitHamiltonianManager,
@@ -17,7 +16,6 @@ from qubit.cqps_qubit.simulation.cqps_qubit_simulator import CqpsQubitSimulator
 
 # Twin Qubit ##################################################################
 from qubit.twin_qubit.twin_qubit import TwinQubit
-from qubit.twin_qubit.twin_qubit_init_details import TwinQubitInitDetails
 from qubit.twin_qubit.cellar.twin_qubit_constant_manager import TwinQubitConstantManager
 from qubit.twin_qubit.cellar.twin_qubit_state_manager import TwinQubitStateManager
 from qubit.twin_qubit.simulation.twin_qubit_hamiltonian_manager import (
@@ -40,7 +38,6 @@ from qubit.twin_qubit.simulation.twin_qubit_simulator_phil_phir import (
 
 # Transmon Qubit ##############################################################
 from qubit.transmon_qubit.transmon_qubit import TransmonQubit
-from qubit.transmon_qubit.transmon_qubit_init_details import TransmonQubitInitDetails
 from qubit.transmon_qubit.cellar.transmon_qubit_constant_manager import (
     TransmonQubitConstantManager,
 )
@@ -55,6 +52,7 @@ from qubit.transmon_qubit.simulation.transmon_qubit_simulator import (
 from qubit.utils.quantum_constants import QuantumConstants
 from qubit.utils.quantum_logger import QuantumLogger
 from qubit.utils.generic_converter import GenericConverter
+from qubit.utils.init_details import InitDetails
 
 
 class QuantumBuilder:
@@ -69,9 +67,7 @@ class QuantumBuilder:
 
         # Load the details into the InitDetails class
         BINDING_SPECS = [
-            TwinQubitInitDetails(
-                param_dictionary, flux_list, logging_level, other_parameters
-            )
+            InitDetails(param_dictionary, flux_list, logging_level, other_parameters)
         ]
 
         # Construct the graph, binding fields of the InitDetails class
@@ -90,7 +86,13 @@ class QuantumBuilder:
     ):
 
         # Load the details into the InitDetails class
-        BINDING_SPECS = [TransmonQubitInitDetails(param_dictionary, logging_level)]
+        BINDING_SPECS = [
+            InitDetails(
+                param_dictionary=param_dictionary,
+                logging_level=logging_level,
+                other_parameters=-1,
+            )
+        ]
 
         # Construct the graph, binding fields of the InitDetails class
         OBJ_GRAPH = pinject.new_object_graph(binding_specs=BINDING_SPECS)
@@ -106,7 +108,9 @@ class QuantumBuilder:
     ):
 
         # Load the details into the InitDetails class
-        BINDING_SPECS = [CqpsQubitInitDetails(param_dictionary, logging_level)]
+        BINDING_SPECS = [
+            InitDetails(param_dictionary, logging_level, other_parameters=-1)
+        ]
 
         # Construct the graph, binding fields of the InitDetails class
         OBJ_GRAPH = pinject.new_object_graph(binding_specs=BINDING_SPECS)

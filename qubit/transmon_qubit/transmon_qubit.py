@@ -12,7 +12,7 @@ class TransmonQubit:
         quantum_logger,
         transmon_qubit_constant_manager,
         transmon_qubit_simulator,
-        transmon_qubit_init_details,
+        init_details,
         transmon_qubit_hamiltonian_manager,
     ):
         """

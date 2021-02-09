@@ -13,7 +13,7 @@ class CqpsQubit:
         self,
         quantum_logger,
         cqps_qubit_constant_manager,
-        cqps_qubit_init_details,
+        init_details,
         cqps_qubit_simulator,
         cqps_qubit_hamiltonian_manager,
     ):
