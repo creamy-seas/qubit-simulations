@@ -6,6 +6,15 @@ from typing import Dict, List
 
 import pinject
 
+# CQPS qubit ##################################################################
+from qubit.cqps_qubit.cqps_qubit import CqpsQubit
+from qubit.cqps_qubit.cqps_qubit_init_details import CqpsQubitInitDetails
+from qubit.cqps_qubit.cellar.cqps_qubit_constant_manager import CqpsQubitConstantManager
+from qubit.cqps_qubit.simulation.cqps_qubit_hamiltonian_manager import (
+    CqpsQubitHamiltonianManager,
+)
+from qubit.cqps_qubit.simulation.cqps_qubit_simulator import CqpsQubitSimulator
+
 # Twin Qubit ##################################################################
 from qubit.twin_qubit.twin_qubit import TwinQubit
 from qubit.twin_qubit.twin_qubit_init_details import TwinQubitInitDetails
@@ -75,7 +84,9 @@ class QuantumBuilder:
 
     @classmethod
     def build_transmon_qubit(
-        cls, param_dictionary: Dict, logging_level: int,
+        cls,
+        param_dictionary: Dict,
+        logging_level: int,
     ):
 
         # Load the details into the InitDetails class
@@ -86,3 +97,19 @@ class QuantumBuilder:
 
         # Perform the build
         return OBJ_GRAPH.provide(TransmonQubit)
+
+    @classmethod
+    def build_cqps_qubit(
+        cls,
+        param_dictionary: Dict,
+        logging_level: int,
+    ):
+
+        # Load the details into the InitDetails class
+        BINDING_SPECS = [CqpsQubitInitDetails(param_dictionary, logging_level)]
+
+        # Construct the graph, binding fields of the InitDetails class
+        OBJ_GRAPH = pinject.new_object_graph(binding_specs=BINDING_SPECS)
+
+        # Perform the build
+        return OBJ_GRAPH.provide(CqpsQubit)
