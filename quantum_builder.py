@@ -67,7 +67,12 @@ class QuantumBuilder:
 
         # Load the details into the InitDetails class
         BINDING_SPECS = [
-            InitDetails(param_dictionary, flux_list, logging_level, other_parameters)
+            InitDetails(
+                param_dictionary=param_dictionary,
+                logging_level=logging_level,
+                other_parameters=other_parameters,
+                flux_list=flux_list,
+            )
         ]
 
         # Construct the graph, binding fields of the InitDetails class

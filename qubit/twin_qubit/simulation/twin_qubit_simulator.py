@@ -32,9 +32,9 @@ class TwinQubitSimulator:
 
         return (phi_external, phi_external_assymetric)
 
-    def simulate(self, 
-                 number_of_levels_to_simulate: int,
-                 evaluate_dipole_element=False):
+    def simulate(
+        self, number_of_levels_to_simulate: int, evaluate_dipole_element=False
+    ):
         """
         __ Parameters __
         [bool] evaluate_dipole_element:   expectation values for the dipole
@@ -45,17 +45,22 @@ class TwinQubitSimulator:
         2 - evaluate the lowest eigenstate and eigenenergies of the Hamiltonian
         3 - plot out the spectrum
         """
-        
+
         self.simulations = defaultdict(list)
         self.simulations["eigvals"] = np.empty((0, number_of_levels_to_simulate))
         self.simulations["eigvecs"] = np.empty(
             (0, self.twin_qubit_state_manager.states_total_number)
         )
         self.twin_qubit_hamiltonian_manager.stage2_prepare_constant_hamiltonian()
-        (voltage_matrix, voltage_scaling_constant, _) = self.twin_qubit_operator_builder.build()
+        (
+            voltage_matrix,
+            voltage_scaling_constant,
+            _,
+        ) = self.twin_qubit_operator_builder.build()
 
         logging.info("💻 Running simulation")
         progress_bar = ProgBar(len(self.flux_list), bar_char="█")
+
         for ext_flux_number in self.flux_list:
 
             (phi_external, phi_external_assymetric) = self.evaluate_flux_in_loops(
@@ -77,7 +82,9 @@ class TwinQubitSimulator:
             self.append_results(eigvals, eigvecs)
 
             if evaluate_dipole_element:
-                self.evaluate_dipole_element_and_append(eigvecs, voltage_matrix, voltage_scaling_constant)
+                self.evaluate_dipole_element_and_append(
+                    eigvecs, voltage_matrix, voltage_scaling_constant
+                )
 
             progress_bar.update()
 
@@ -101,14 +108,15 @@ class TwinQubitSimulator:
         self.simulations["2-3"].append(eigvals[2] - eigvals[1])
 
     def evaluate_dipole_element_and_append(
-        self, eigvecs: np.array, voltage_matrix: sp.csr_matrix, voltage_scaling_constant: float
+        self,
+        eigvecs: np.array,
+        voltage_matrix: sp.csr_matrix,
+        voltage_scaling_constant: float,
     ):
         for (i, j) in itertools.combinations(range(0, len(eigvecs)), 2):
             matrix_element = np.conjugate(eigvecs[i]).dot(
                 voltage_matrix.dot(eigvecs[j])
             )
             self.simulations[f"d{i}-{j}"].append(
-                    np.abs(
-                    matrix_element
-                ) * voltage_scaling_constant
+                np.abs(matrix_element) * voltage_scaling_constant
             )

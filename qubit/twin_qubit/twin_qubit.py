@@ -32,7 +32,10 @@ class TwinQubit:
         self.twin_qubit_constant_manager.print_constants()
 
     def run_simulation(self, evaluate_dipole_element=False):
-        self.twin_qubit_simulator.simulate(evaluate_dipole_element)
+        self.twin_qubit_simulator.simulate(
+            number_of_levels_to_simulate=3,
+            evaluate_dipole_element=evaluate_dipole_element,
+        )
         self.simulations = self.twin_qubit_simulator.simulations
 
     def run_fluctuation_simulations(
