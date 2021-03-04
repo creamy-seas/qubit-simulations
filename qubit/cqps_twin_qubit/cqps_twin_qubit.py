@@ -2,7 +2,7 @@
 CQPS twin qubit
 """
 
-from typing import Tuple, List, Dict
+from typing import List, Dict
 import pinject
 
 
@@ -24,26 +24,35 @@ class CqpsTwinQubit:
         pass
 
     def override_parameters(
-        self, EL: float = None, ES: float = None, ES_on_sides: float = None
+        self,
+        EL_right: float = None,
+        EL_left: float = None,
+        ES: float = None,
+        ES_on_sides: float = None,
     ):
-        self.cqps_twin_qubit_constant_manager.override_parameters(EL, ES)
+        self.cqps_twin_qubit_constant_manager.override_parameters(
+            EL_left=EL_left,
+            EL_right=EL_right,
+            ES=ES,
+            ES_on_sides=ES_on_sides,
+        )
 
     def run_simulation(
         self,
-        flux_ext_list: List[float],
+        phi_dict: Dict,
         number_of_levels_to_simulate: int,
         use_sparse_matrix=True,
     ) -> Dict:
         """
-        @brief      Run simulation of CQPS energies and eigenstates for each of the supplied fluxes
+        @brief      Run simulation of CQPS Twin energies and eigenstates for each of the supplied fluxes
 
-        @param      flux_ext_list: List of fluxes
+        @param      phi_dict: Details on how to vary flux in simulation
                     use_sparse_matrix: True to use faster approximation
 
         @return     None
         """
-        return self.cqps_qubit_simulator.simulate(
-            flux_ext_list,
-            number_of_levels_to_simulate,
-            use_sparse_matrix,
+        return self.cqps_twin_qubit_simulator.simulate(
+            phi_dict=phi_dict,
+            number_of_levels_to_simulate=number_of_levels_to_simulate,
+            use_sparse_matrix=use_sparse_matrix,
         )

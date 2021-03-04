@@ -20,15 +20,7 @@ RIGHT = 1
 class CqpsTwinQubitHamiltonianManager:
     @pinject.copy_args_to_public_fields
     def __init__(self, cqps_twin_qubit_constant_manager):
-
-        self.hamiltonian_elements = OrderedDict()
-        self.hamiltonian_elements["inductance"] = defaultdict(list)
-        self.hamiltonian_elements["loop-loop-tunneling"] = defaultdict(list)
-        self.hamiltonian_elements["loop-env-tunneling"] = defaultdict(list)
-
-        self.hamiltonian_skeleton = defaultdict(list)
-
-        self.stage1_prepare_hamiltonian_skeleton()
+        pass
 
     def stage1_prepare_hamiltonian_skeleton(self):
         """
@@ -44,6 +36,13 @@ class CqpsTwinQubitHamiltonianManager:
         | loop-env-tunneling  | - ES_on_sides/2                         |
         |---------------------+-----------------------------------------|
         """
+        # Reset parameters for simulation
+        self.hamiltonian_elements = OrderedDict()
+        self.hamiltonian_elements["inductance"] = defaultdict(list)
+        self.hamiltonian_elements["loop-loop-tunneling"] = defaultdict(list)
+        self.hamiltonian_elements["loop-env-tunneling"] = defaultdict(list)
+
+        self.hamiltonian_skeleton = defaultdict(list)
 
         # Defining tools used here ############################################
         states_per_loop = self.cqps_twin_qubit_constant_manager.states_per_loop
@@ -52,6 +51,7 @@ class CqpsTwinQubitHamiltonianManager:
             self.cqps_twin_qubit_constant_manager.convert_state_to_index
         )
 
+        self.cqps_twin_qubit_constant_manager.print_constants()
         logging.debug(
             f"""🏗 Creating skeleton
 {'States total number:':<30}{states_total_number}

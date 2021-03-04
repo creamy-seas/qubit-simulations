@@ -14,6 +14,16 @@ from qubit.cqps_qubit.simulation.cqps_qubit_hamiltonian_manager import (
 )
 from qubit.cqps_qubit.simulation.cqps_qubit_simulator import CqpsQubitSimulator
 
+# CQPS twin qubit #############################################################
+from qubit.cqps_twin_qubit.cqps_twin_qubit import CqpsTwinQubit
+from qubit.cqps_twin_qubit.cqps_twin_qubit_simulator import CqpsTwinQubitSimulator
+from qubit.cqps_twin_qubit.cqps_twin_qubit_constant_manager import (
+    CqpsTwinQubitConstantManager,
+)
+from qubit.cqps_twin_qubit.cqps_twin_qubit_hamiltonian_manager import (
+    CqpsTwinQubitHamiltonianManager,
+)
+
 # Twin Qubit ##################################################################
 from qubit.twin_qubit.twin_qubit import TwinQubit
 from qubit.twin_qubit.cellar.twin_qubit_constant_manager import TwinQubitConstantManager
@@ -122,3 +132,16 @@ class QuantumBuilder:
 
         # Perform the build
         return OBJ_GRAPH.provide(CqpsQubit)
+
+    @classmethod
+    def build_cqps_twin_qubit(cls, param_dictionary, logging_level):
+        # Load the details into the InitDetails class
+        BINDING_SPECS = [
+            InitDetails(param_dictionary, logging_level, other_parameters=-1)
+        ]
+
+        # Construct the graph, binding fields of the InitDetails class
+        OBJ_GRAPH = pinject.new_object_graph(binding_specs=BINDING_SPECS)
+
+        # Perform the build
+        return OBJ_GRAPH.provide(CqpsTwinQubit)
