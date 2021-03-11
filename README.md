@@ -34,9 +34,7 @@ jt -t grade3 -cellw 70%  -altm -cursc g -cursw 5 -T
 jupyter notebook
 ```
 
-# Setup Automated #
-> Will work on all machines
-> Will need to install `docker`
+# Setup that will work on all computers #
 
 ## Installation (only once) ##
 
@@ -52,23 +50,23 @@ git clone https://github.com/creamy-seas/qubit-simulations
 ```
 
 4. Go to this directory and start the program. It will take 5 minutes to build.
-```
+```shell
 cd qubit-simulations
 
 make
 ```
 
-5. Type in http://localhost:8888 in your browser
-
 ## Running ##
 
-After running the above installation either:
-- see [this video](https://drive.google.com/file/d/1yEXCtdDS1q6IzbYI_V0LQ01JDc0eh_pO/view?usp=sharing) on how to start and stop the program;
-- or go to the folder and run
+1. Go to this directory and run (if you just ran the installation, then program is already running and this is not needed)
+
 ```shell
 make
 ```
 
+2. Type in http://localhost:8888 in your browser to open the project
+
+Alternatively, see how the program is launched in [this video](https://drive.google.com/file/d/1yEXCtdDS1q6IzbYI_V0LQ01JDc0eh_pO/view?usp=sharing).
 
 # Examples #
 <details>

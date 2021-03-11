@@ -4,7 +4,7 @@ from typing import List
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.style.use("../utils/qubit.mplstyle")
+plt.style.use("../support-files/qubit.mplstyle")
 from matplotlib import cm
 from IPython.display import display
 import ipywidgets
