@@ -59,6 +59,9 @@ pycparser==2.20
 Pygments==2.8.1
 pyparsing==2.4.7
 PyPrind==2.11.2
+PyQt5==5.15.1
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.8.1
 pyrsistent==0.17.3
 python-dateutil==2.8.1
 PyYAML==5.4.1
