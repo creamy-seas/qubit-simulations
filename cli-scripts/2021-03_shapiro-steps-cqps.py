@@ -84,6 +84,7 @@ t_points = 201
 # ax.set_xlabel("Time, t (ns)", fontsize=12)
 # ax.set_ylabel("Current, $I/2ef_{mw}$", fontsize=12)
 # plt.tight_layout()
+# plt.show()
 
 ###############################################################################
 #                                   I-V plot                                  #
@@ -170,6 +171,7 @@ def average_current_slimmed_cqps_kernel(
 #     fontsize=12,
 # )
 # plt.tight_layout()
+# plt.show()
 
 
 ###############################################################################
