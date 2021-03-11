@@ -1,6 +1,6 @@
 # Setup #
 
-1. Install the required dependencies by downloading `requirements.txt` and running
+1. Install the required dependencies by downloading [`requirements.txt`](../requirements.txt) and running
 
 ```shell
 pip install -r requirements.txt
