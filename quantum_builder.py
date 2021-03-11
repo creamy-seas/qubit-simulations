@@ -59,10 +59,10 @@ from qubit.transmon_qubit.simulation.transmon_qubit_simulator import (
 )
 
 # Common ######################################################################
-from qubit.utils.quantum_constants import QuantumConstants
-from qubit.utils.quantum_logger import QuantumLogger
-from qubit.utils.generic_converter import GenericConverter
-from qubit.utils.init_details import InitDetails
+from qubit.qutils.quantum_constants import QuantumConstants
+from qubit.qutils.quantum_logger import QuantumLogger
+from qubit.qutils.generic_converter import GenericConverter
+from qubit.qutils.init_details import InitDetails
 
 
 class QuantumBuilder:

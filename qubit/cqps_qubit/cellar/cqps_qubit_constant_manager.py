@@ -10,7 +10,7 @@ import numpy as np
 
 import pinject
 
-from common.terminal_colour import TerminalColour
+from utils.terminal_colour import TerminalColour
 
 pi = np.pi
 

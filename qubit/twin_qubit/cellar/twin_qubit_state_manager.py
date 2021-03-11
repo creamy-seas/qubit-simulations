@@ -14,7 +14,7 @@ class TwinQubitStateManager:
         self.verify_simulation_parameters()
 
     def verify_simulation_parameters(self):
-        """Correct common errors before program begins"""
+        """Correct utils errors before program begins"""
         logging.info(
             f"""⚙ Quantum state manager is using:
 {self.states_per_island:<5} states per island

@@ -1,0 +1,26 @@
+{
+    "load_extensions": {
+        "hinterland/main": true,
+        "varInspector/main": true,
+        "code_prettify/autopep8": true,
+        "hinterland/hinterland": true,
+        "collapsible_headings/main": true,
+        "highlight_selected_word/main": true,
+        "splitcell/splitcell": true,
+        "toc2/main": true,
+        "select_keymap/main": true
+    },
+    "keys": {
+        "command": {
+            "unbind": [
+                "i,i"
+            ],
+            "bind": {
+                "ctrl-j": "jupyter-notebook:interrupt-kernel",
+                "ctrl-s": "jupyter-notebook:split-cell-at-cursor",
+                "ctrl-t": "jupyter-notebook:toggle-toolbar",
+                "ctrl-enter": "jupyter-notebook:run-cell"
+            }
+        }
+    }
+}

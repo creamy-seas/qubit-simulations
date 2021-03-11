@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  jupyter:
+    build: .
+    container_name: qutip-jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - ./:/qutip-simulator

@@ -9,8 +9,8 @@ from tests.mock_templates import array_assertion
 from qubit.cqps_twin_qubit.cqps_twin_qubit_constant_manager import (
     CqpsTwinQubitConstantManager,
 )
-from qubit.utils.generic_converter import GenericConverter
-from qubit.utils.quantum_constants import QuantumConstants
+from qubit.qutils.generic_converter import GenericConverter
+from qubit.qutils.quantum_constants import QuantumConstants
 
 
 class TestCqpsTwinQubitConstantManager(unittest.TestCase):

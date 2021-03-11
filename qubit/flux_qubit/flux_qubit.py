@@ -70,7 +70,7 @@ class flux(quantum_master):
 
     def prepare_correction(self):
         """
-        Correct common errors before program begins
+        Correct utils errors before program begins
         """
         if ((self.states_per_island % 2) == 0):
             print("==> Changing states_per_island from %data_set -> %data_set" %
