@@ -133,6 +133,7 @@ def average_current_slimmed_cqps_kernel(
     return average_in_range(t_list, normalised_current, t_start, t_end)
 
 
+# print("Generating IV-curve")
 # Vmw = 10 * uV
 # fmw = 1 * GHz
 # Vs = 6 * uV
@@ -256,6 +257,7 @@ i_average_mesh_flat = i_average_mesh.T.flatten()
 
 # Surface plot ################################################################
 # Surface with plotly
+print("Generating surface plot")
 surface_plot = go.Surface(y=vb_list / uV, x=vmw_list / uV, z=i_average_mesh)
 surface_plot_layout = go.Layout(
     title_text=f"$f_{{mw}}={fmw/GHz:.3f}GHz, V_s={Vs/uV:.2f}\mu{{V}}, R={R}\Omega, L={L/uH:.3f}\mu{{H}}$",

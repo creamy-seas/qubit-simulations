@@ -1,3 +1,9 @@
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
+
+[![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
+
+
+
 # Setup Manual #
 > Will need to install python and all dependecies manually.
 > See [**this video**](https://drive.google.com/file/d/1W-4pjqTsHDLQ3LV9SSvA2kXKPJqugf_G/view?usp=sharing) for example setup.
