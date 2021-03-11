@@ -1,5 +1,6 @@
 # Setup Manual #
-> Will need to install python and all dependecies manually
+> Will need to install python and all dependecies manually.
+> See [**this video**](https://drive.google.com/file/d/1W-4pjqTsHDLQ3LV9SSvA2kXKPJqugf_G/view?usp=sharing) for example setup.
 
 1. Clone this directory - in the command line write
 ```shell
@@ -13,7 +14,7 @@ pip install -r requirements.txt
 
 4. Install juputer modules
 ```shell
-jupyter contrib nbextension install --user
+jupyter contrib nbextension install
 jupyter nbextension enable hinterland/main
 jupyter nbextension enable varInspector/main
 jupyter nbextension enable code_prettify/autopep8
@@ -34,8 +35,8 @@ jupyter notebook
 ```
 
 # Setup Automated #
-> - Will work on all machines
-> - Will need to install `docker`
+> Will work on all machines
+> Will need to install `docker`
 
 ## Installation ##
 
