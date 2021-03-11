@@ -38,9 +38,9 @@ jupyter notebook
 > Will work on all machines
 > Will need to install `docker`
 
-## Installation ##
+## Installation (only once) ##
 
-> See [this video](https://drive.google.com/file/d/1U5oR8yTkWLR3nNUIOpEvF3HtEKRtJ8bG/view?usp=sharing) oh how to install.
+> See [this video](https://drive.google.com/file/d/1ZFS4tugP9XYUNOpvOWhaisQyw6EHkO9B/view?usp=sharing) oh how to install.
 
 1. Install [**Docker desktop**](https://docs.docker.com/desktop/)
 
@@ -62,7 +62,13 @@ make
 
 ## Running ##
 
-After running the above installation, please see [this video](https://drive.google.com/file/d/1ia9tHd4D7tmGBfza3BAfx8aNT4bh4AsL/view?usp=sharing) on how to start and stop the program.
+After running the above installation either:
+- see [this video](https://drive.google.com/file/d/1yEXCtdDS1q6IzbYI_V0LQ01JDc0eh_pO/view?usp=sharing) on how to start and stop the program;
+- or go to the folder and run
+```shell
+make
+```
+
 
 # Examples #
 <details>
@@ -73,6 +79,8 @@ After running the above installation, please see [this video](https://drive.goog
 ![shapiro-v1](./support-files/2021-03-11(Thu)_shapiro-simulation-v1.gif)
 
 ![shapiro-v2](./support-files/2021-03-11(Thu)_shapiro-simulation-v2.gif)
+
+![shapiro-step](./support-files/2021-03-11(Thu)_shapiro-simulation-v3.png)
 
 
 </details>
