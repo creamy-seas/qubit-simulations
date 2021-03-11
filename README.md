@@ -1,5 +1,5 @@
 # Setup Manual #
-> - Will need to install python and all dependecies manually
+> Will need to install python and all dependecies manually
 
 1. Create python virtual environment
 2. Install python modules
@@ -60,11 +60,15 @@ make
 
 After running the above installation, please see [this video](https://drive.google.com/file/d/1ia9tHd4D7tmGBfza3BAfx8aNT4bh4AsL/view?usp=sharing) on how to start and stop the program.
 
-# Example screenshots #
+# Examples #
+<details>
+<summary>Shapiro simulations</summary>
 
-## Shapiro simulations ##
 > File: [2021-03_shapiro-step-simulations.ipynb](./2021-03_shapiro-step-simulations.ipynb)
 
 ![shapiro-v1](./support-files/2021-03-11(Thu)_shapiro-simulation-v1.gif)
 
 ![shapiro-v2](./support-files/2021-03-11(Thu)_shapiro-simulation-v2.gif)
+
+
+</details>
