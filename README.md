@@ -1,13 +1,17 @@
 # Setup Manual #
 > Will need to install python and all dependecies manually
 
-1. Create python virtual environment
-2. Install python modules
+1. Clone this directory - in the command line write
+```shell
+git clone https://github.com/creamy-seas/qubit-simulations
+```
+2. Create python virtual environment
+3. Install python modules
 ```shell
 pip install -r requirements.txt
 ```
 
-3. Install juputer modules
+4. Install juputer modules
 ```shell
 jupyter contrib nbextension install --user
 jupyter nbextension enable hinterland/main
@@ -24,11 +28,10 @@ jupyter nbextension enable autosavetime/main
 jt -t grade3 -cellw 70%  -altm -cursc g -cursw 5 -T
 ```
 
-4. Run project
+5. Run project
 ```shell
 jupyter notebook
 ```
-
 
 # Setup Automated #
 > - Will work on all machines
