@@ -4,6 +4,15 @@ This is a python quantum simulation project, which is best with **Jupyter**.
 
 ![Example workflow](./support-files/display.png)
 
+# External packages #
+> You will need to manually install [`resonator_tools`](https://github.com/sebastianprobst/resonator_tools)
+
+```sh
+git clone https://github.com/sebastianprobst/resonator_tools
+cd resonator_tools
+python setup.py install
+```
+
 # Setup Manual #
 > Will need to install python and all dependecies manually.
 > See [**this video**](https://drive.google.com/file/d/1W-4pjqTsHDLQ3LV9SSvA2kXKPJqugf_G/view?usp=sharing) for example setup.
