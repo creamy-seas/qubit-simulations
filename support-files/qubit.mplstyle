@@ -2,15 +2,15 @@
 # font
 ####################
 axes.titlesize : 20
-axes.labelsize : 18
+axes.labelsize : 14
 text.hinting_factor : 8 # Specifies the amount of softness for hinting
 mathtext.fontset : cm
 
 ####################
 # axes
 ####################
-xtick.labelsize : 11
-ytick.labelsize : 11
+xtick.labelsize : 8
+ytick.labelsize : 8
 xtick.color : (0.17, 0.17, 0.17)
 ytick.color : (0.17, 0.17, 0.17)
 xtick.direction: out
