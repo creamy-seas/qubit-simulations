@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2426754,      57894]
-NotebookOptionsPosition[   2385176,      57209]
-NotebookOutlinePosition[   2385570,      57225]
-CellTagsIndexPosition[   2385527,      57222]
+NotebookDataLength[   2446095,      58386]
+NotebookOptionsPosition[   2403549,      57683]
+NotebookOutlinePosition[   2403943,      57699]
+CellTagsIndexPosition[   2403900,      57696]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30612,8 +30612,8 @@ Cell[BoxData["0"], "Output",
  CellLabel->
   "Out[799]=",ExpressionUUID->"1201c8ce-18bc-4e6a-8fc5-8c22ea742785"]
 }, Open  ]]
-}, Closed]]
-}, Open  ]],
+}, Open  ]]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -56484,106 +56484,8 @@ Cell[BoxData[
        ItemBox[
         TagBox[
          FractionBox[
-          RowBox[{
-           TemplateBox[{"1"},
-            "OutputSizeLimit`Skeleton"], "+", 
-           TemplateBox[{"1"},
-            "OutputSizeLimit`Skeleton"], "-", 
-           TemplateBox[{"1"},
-            "OutputSizeLimit`Skeleton"], "+", 
-           TemplateBox[{"1"},
-            "OutputSizeLimit`Skeleton"], "+", 
-           RowBox[{
-            SubscriptBox["\[Delta]", "q"], " ", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Kappa]", " ", 
-               RowBox[{"(", 
-                RowBox[{
-                 RowBox[{"\[Kappa]", " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", 
-                    FractionBox[
-                    RowBox[{
-                    FractionBox[
-                    RowBox[{"8", " ", 
-                    SuperscriptBox["g", "3"], " ", "G", " ", 
-                    "\[CapitalGamma]1", " ", 
-                    SubscriptBox["\[Delta]", "q"]}], 
-                    RowBox[{"\[CapitalOmega]", " ", 
-                    RowBox[{"(", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], ")"}], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"\[Kappa]", " ", 
-                    SubscriptBox["\[Delta]", "q"]}], "-", 
-                    RowBox[{"2", " ", 
-                    RowBox[{"(", 
-                    RowBox[{"G", "+", "\[Kappa]"}], ")"}], " ", 
-                    SubscriptBox["\[Delta]", "r"]}]}], ")"}]}]], "+", 
-                    TemplateBox[{"68"},
-                    "OutputSizeLimit`Skeleton"], "+", 
-                    FractionBox[
-                    RowBox[{
-                    "4", " ", "\[CapitalGamma]1", " ", "\[Kappa]", " ", 
-                    SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
-                    SubsuperscriptBox["\[Delta]", "r", "3"]}], 
-                    RowBox[{"g", " ", "\[CapitalOmega]", " ", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], " ", 
-                    RowBox[{"(", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], ")"}]}]]}], 
-                    RowBox[{
-                    TemplateBox[{"86"},
-                    "OutputSizeLimit`Skeleton"], "+", 
-                    FractionBox[
-                    RowBox[{"4", " ", 
-                    SuperscriptBox["\[Kappa]", "2"], " ", 
-                    SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
-                    SubsuperscriptBox["\[Delta]", "r", "3"]}], 
-                    RowBox[{"g", " ", "\[CapitalOmega]", " ", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], " ", 
-                    RowBox[{"(", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], ")"}]}]]}]]}], "+", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], "-", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], "+", 
-                    FractionBox[
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{
-                    FractionBox[
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]], "-", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]}], ")"}], " ", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]}], 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"-", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"], "-", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]}], ")"}]}], " ", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]}], "+", 
-                    TemplateBox[{"1"},
-                    "OutputSizeLimit`Skeleton"]}]]}], ")"}]}], "-", 
-                 TemplateBox[{"1"},
-                  "OutputSizeLimit`Skeleton"]}], ")"}]}], "-", 
-              TemplateBox[{"1"},
-               "OutputSizeLimit`Skeleton"]}], ")"}]}]}], 
+          TemplateBox[{"1"},
+           "OutputSizeLimit`Skeleton"], 
           RowBox[{"2", " ", "\[CapitalOmega]", " ", 
            RowBox[{"(", 
             RowBox[{
@@ -56593,7 +56495,7 @@ Cell[BoxData[
               RowBox[{"(", 
                RowBox[{"G", "+", "\[Kappa]"}], ")"}], " ", 
               SubscriptBox["\[Delta]", "r"]}]}], ")"}]}]],
-         Short[#, 5]& ],
+         Short[#, 10]& ],
         BaseStyle->{Deployed -> False},
         StripOnInput->False]},
       {GridBox[{
@@ -56663,7 +56565,7 @@ Cell[BoxData[
            BaselinePosition->Baseline,
            
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
-            OutputSizeLimit`Defer, 1303, 23007534575656693100, 5/2],
+            OutputSizeLimit`Defer, 1303, 23007534575656693100, 10/2],
            Enabled->True,
            Evaluator->Automatic,
            Method->"Queued"], 
@@ -56685,7 +56587,8 @@ Cell[BoxData[
              StyleBox[
               DynamicBox[ToBoxes[
                 FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
-                StandardForm]],
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
               StripOnInput->False,
               DynamicUpdating->True,
               LineSpacing->{1, 2},
@@ -56700,7 +56603,7 @@ Cell[BoxData[
            BaselinePosition->Baseline,
            
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
-            OutputSizeLimit`Defer, 1303, 23007534575656693100, 5 2],
+            OutputSizeLimit`Defer, 1303, 23007534575656693100, 10 2],
            Enabled->True,
            Evaluator->Automatic,
            Method->"Queued"], 
@@ -56722,7 +56625,8 @@ Cell[BoxData[
              StyleBox[
               DynamicBox[ToBoxes[
                 FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
-                StandardForm]],
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
               StripOnInput->False,
               DynamicUpdating->True,
               LineSpacing->{1, 2},
@@ -56812,17 +56716,24 @@ Cell[BoxData[
  CellChangeTimes->{{3.839404387000999*^9, 3.839404492873411*^9}, 
    3.839414107798126*^9},
  CellLabel->
-  "Out[1303]=",ExpressionUUID->"12781b15-47b8-4b79-a9c0-59463c55dd7e"]
+  "Out[1303]=",ExpressionUUID->"aa22cc05-321d-4ceb-986b-080f90785aab"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"step2", " ", "=", " ", 
-  RowBox[{"Factor", "[", "step1", "]"}]}]], "Input",
- CellChangeTimes->{{3.839404494983179*^9, 3.839404501680444*^9}},
- CellLabel->
-  "In[1304]:=",ExpressionUUID->"df3ca08e-2bc5-457b-96de-ed835e3e0cd0"],
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Careful", "!"}], " ", "This", " ", "took", " ", "30", " ", 
+    "minutes", " ", "on", " ", "my", " ", "32", "GB", " ", "2.4", "GHz", " ", 
+    "intel", " ", "i9", " ", "laptop"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"step2", " ", "=", " ", 
+   RowBox[{"Factor", "[", "step1", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.839404494983179*^9, 3.839404501680444*^9}, {
+  3.839415124089637*^9, 
+  3.8394151656539288`*^9}},ExpressionUUID->"df3ca08e-2bc5-457b-96de-\
+ed835e3e0cd0"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -56831,111 +56742,144 @@ Cell[BoxData[
       {
        ItemBox[
         TagBox[
-         RowBox[{"-", 
+         RowBox[{
           RowBox[{"(", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{"\[CapitalOmega]", " ", 
-              RowBox[{"(", 
-               TemplateBox[{"1"},
-                "OutputSizeLimit`Skeleton"], ")"}]}], ")"}], "/", 
+           RowBox[{"\[CapitalOmega]", " ", 
             RowBox[{"(", 
              RowBox[{
-              RowBox[{"512", " ", 
-               SuperscriptBox["g", "10"], " ", 
-               SuperscriptBox["G", "3"], " ", 
+              RowBox[{"256", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "4"], " ", 
                SuperscriptBox["\[CapitalGamma]1", "2"]}], "+", 
-              RowBox[{"1024", " ", 
-               SuperscriptBox["g", "8"], " ", 
-               SuperscriptBox["G", "4"], " ", 
+              RowBox[{"512", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "5"], " ", 
                SuperscriptBox["\[CapitalGamma]1", "3"]}], "+", 
-              RowBox[{"512", " ", 
-               SuperscriptBox["g", "6"], " ", 
-               SuperscriptBox["G", "5"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "4"]}], "+", 
-              RowBox[{"1024", " ", 
-               SuperscriptBox["g", "10"], " ", 
-               SuperscriptBox["G", "3"], " ", "\[CapitalGamma]1", " ", 
-               "\[Kappa]"}], "+", 
-              RowBox[{"768", " ", 
-               SuperscriptBox["g", "10"], " ", 
-               SuperscriptBox["G", "2"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
-              "+", 
-              RowBox[{"3328", " ", 
-               SuperscriptBox["g", "8"], " ", 
-               SuperscriptBox["G", "4"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
-              "+", 
-              RowBox[{"2560", " ", 
-               SuperscriptBox["g", "8"], " ", 
-               SuperscriptBox["G", "3"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
-              "+", 
-              RowBox[{"3072", " ", 
-               SuperscriptBox["g", "6"], " ", 
-               SuperscriptBox["G", "5"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
-              "+", 
-              RowBox[{"1792", " ", 
-               SuperscriptBox["g", "6"], " ", 
-               SuperscriptBox["G", "4"], " ", 
-               SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], 
-              "+", 
-              RowBox[{"768", " ", 
+              RowBox[{"256", " ", "\[ImaginaryI]", " ", 
                SuperscriptBox["g", "4"], " ", 
                SuperscriptBox["G", "6"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "4"]}], "+", 
+              RowBox[{"512", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "4"], " ", "\[CapitalGamma]1", " ", 
+               "\[Kappa]"}], "+", 
+              RowBox[{"384", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "3"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1536", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "5"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1280", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "4"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1280", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "4"], " ", 
+               SuperscriptBox["G", "6"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"896", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "4"], " ", 
+               SuperscriptBox["G", "5"], " ", 
                SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], 
               "+", 
-              RowBox[{"512", " ", 
-               SuperscriptBox["g", "10"], " ", 
-               SuperscriptBox["G", "3"], " ", 
-               SuperscriptBox["\[Kappa]", "2"]}], "+", 
-              TemplateBox[{"1087"},
-               "OutputSizeLimit`Skeleton"], "+", 
-              RowBox[{"64", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "4"], " ", 
-               SuperscriptBox["\[Kappa]", "3"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"128", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "3"], " ", 
-               SuperscriptBox["\[Kappa]", "4"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"80", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
-               SuperscriptBox["\[Kappa]", "5"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"16", " ", "\[CapitalGamma]1", " ", 
-               SuperscriptBox["\[Kappa]", "6"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"128", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]", " ", 
-               
-               SuperscriptBox["\[CapitalOmega]", "2"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"256", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "3"], " ", 
-               SuperscriptBox["\[Kappa]", "2"], " ", 
-               SuperscriptBox["\[CapitalOmega]", "2"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"224", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
-               SuperscriptBox["\[Kappa]", "3"], " ", 
-               SuperscriptBox["\[CapitalOmega]", "2"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"64", " ", "\[CapitalGamma]1", " ", 
-               SuperscriptBox["\[Kappa]", "4"], " ", 
-               SuperscriptBox["\[CapitalOmega]", "2"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"128", " ", 
-               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]", " ", 
-               
-               SuperscriptBox["\[CapitalOmega]", "4"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}], "+", 
-              RowBox[{"64", " ", "\[CapitalGamma]1", " ", 
-               SuperscriptBox["\[Kappa]", "2"], " ", 
-               SuperscriptBox["\[CapitalOmega]", "4"], " ", 
-               SubsuperscriptBox["\[Delta]", "q", "8"]}]}], ")"}]}], ")"}]}],
+              TemplateBox[{"4581"},
+               "OutputSizeLimit`Skeleton"]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"512", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "3"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"]}], "+", 
+            RowBox[{"1024", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "5"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"]}], "+", 
+            RowBox[{"1024", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "3"], " ", "\[CapitalGamma]1", " ", 
+             "\[Kappa]"}], "+", 
+            RowBox[{"768", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "2"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"3328", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"2560", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "3"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"3072", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "5"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"1792", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"768", " ", 
+             SuperscriptBox["g", "4"], " ", 
+             SuperscriptBox["G", "6"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], "+", 
+            
+            TemplateBox[{"3490"},
+             "OutputSizeLimit`Skeleton"], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["G", "2"], " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["G", "2"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]", " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["G", "2"], " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", "G", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", "G", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "3"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
+             SuperscriptBox["\[Kappa]", "3"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]", " ", 
+             SubsuperscriptBox["\[Delta]", "q", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}]}], ")"}]}],
          Short[#, 5]& ],
         BaseStyle->{Deployed -> False},
         StripOnInput->False]},
@@ -56991,8 +56935,7 @@ Cell[BoxData[
              StyleBox[
               DynamicBox[ToBoxes[
                 FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
-                StandardForm],
-               ImageSizeCache->{50., {0., 8.}}],
+                StandardForm]],
               StripOnInput->False,
               DynamicUpdating->True,
               LineSpacing->{1, 2},
@@ -57007,7 +56950,7 @@ Cell[BoxData[
            BaselinePosition->Baseline,
            
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
-            OutputSizeLimit`Defer, 729, 23007534575656693100, 5/2],
+            OutputSizeLimit`Defer, 1304, 23007534575656693100, 5/2],
            Enabled->True,
            Evaluator->Automatic,
            Method->"Queued"], 
@@ -57029,8 +56972,7 @@ Cell[BoxData[
              StyleBox[
               DynamicBox[ToBoxes[
                 FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
-                StandardForm],
-               ImageSizeCache->{56., {0., 8.}}],
+                StandardForm]],
               StripOnInput->False,
               DynamicUpdating->True,
               LineSpacing->{1, 2},
@@ -57045,7 +56987,7 @@ Cell[BoxData[
            BaselinePosition->Baseline,
            
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
-            OutputSizeLimit`Defer, 729, 23007534575656693100, 5 2],
+            OutputSizeLimit`Defer, 1304, 23007534575656693100, 5 2],
            Enabled->True,
            Evaluator->Automatic,
            Method->"Queued"], 
@@ -57067,7 +57009,8 @@ Cell[BoxData[
              StyleBox[
               DynamicBox[ToBoxes[
                 FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
-                StandardForm]],
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
               StripOnInput->False,
               DynamicUpdating->True,
               LineSpacing->{1, 2},
@@ -57082,7 +57025,7 @@ Cell[BoxData[
            BaselinePosition->Baseline,
            
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
-            OutputSizeLimit`Defer, 729, 23007534575656693100, Infinity],
+            OutputSizeLimit`Defer, 1304, 23007534575656693100, Infinity],
            Enabled->True,
            Evaluator->Automatic,
            Method->"Queued"], 
@@ -57152,44 +57095,455 @@ Cell[BoxData[
    Deploy,
    DefaultBaseStyle->"Deploy"],
   If[23007534575656693100 === $SessionID, 
-   Out[729], Message[
+   Out[1304], Message[
      MessageName[Syntax, "noinfoker"]]; Missing["NotAvailable"]; 
    Null]]], "Output",
- CellChangeTimes->{3.839404530217161*^9},
+ CellChangeTimes->{3.839404530217161*^9, 3.839414935570834*^9},
  CellLabel->
-  "Out[729]=",ExpressionUUID->"30eb1340-3c9c-4453-b16c-d7d02faf5cd5"]
+  "Out[1304]=",ExpressionUUID->"27b0eae0-c946-4dec-9e65-e932e16893a7"]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{
-  RowBox[{"step3", " ", "=", " ", 
-   RowBox[{"(", 
+ RowBox[{"step3", " ", "=", " ", 
+  RowBox[{"(", 
+   RowBox[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{"step2", "\[IndentingNewLine]", "/.", 
+       RowBox[{
         RowBox[{
-         SuperscriptBox["\[CapitalOmega]", "2"], "\[Rule]", "0"}]}], 
+         RowBox[{"step2", "\[IndentingNewLine]", "/.", 
+          RowBox[{
+           SuperscriptBox["\[CapitalOmega]", "2"], "\[Rule]", "0"}]}], 
+         "\[IndentingNewLine]", "/.", 
+         RowBox[{
+          SuperscriptBox["\[CapitalOmega]", "4"], "\[Rule]", "0"}]}], 
+        "\[IndentingNewLine]", "/.", 
+        RowBox[{
+         SuperscriptBox["\[CapitalOmega]", "6"], "\[Rule]", "0"}]}], 
        "\[IndentingNewLine]", "/.", 
        RowBox[{
-        SuperscriptBox["\[CapitalOmega]", "4"], "\[Rule]", "0"}]}], 
+        SuperscriptBox["\[CapitalOmega]", "8"], "\[Rule]", "0"}]}], 
       "\[IndentingNewLine]", "/.", 
       RowBox[{
-       SuperscriptBox["\[CapitalOmega]", "6"], "\[Rule]", "0"}]}], 
+       SuperscriptBox["\[CapitalOmega]", "10"], "\[Rule]", "0"}]}], 
      "\[IndentingNewLine]", "/.", 
      RowBox[{
-      SuperscriptBox["\[CapitalOmega]", "8"], "\[Rule]", "0"}]}], 
-    "\[IndentingNewLine]", ")"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.839404516282428*^9, 3.839404579446143*^9}},
+      SuperscriptBox["\[CapitalOmega]", "12"], "\[Rule]", "0"}]}], 
+    "\[IndentingNewLine]", "/.", 
+    RowBox[{
+     SuperscriptBox["\[CapitalOmega]", "14"], "\[Rule]", "0"}]}], 
+   "\[IndentingNewLine]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.839404516282428*^9, 3.839404579446143*^9}, {
+  3.839414990729336*^9, 3.839414999489489*^9}, {3.839415057646556*^9, 
+  3.839415094712895*^9}},
  CellLabel->
-  "In[732]:=",ExpressionUUID->"a0b7966d-73fb-467b-aa2b-febb97a9192f"],
+  "In[1314]:=",ExpressionUUID->"a0b7966d-73fb-467b-aa2b-febb97a9192f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[CapitalOmega]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"256", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "4"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "2"]}], "+", 
+              RowBox[{"512", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "5"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "3"]}], "+", 
+              RowBox[{"256", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "4"], " ", 
+               SuperscriptBox["G", "6"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "4"]}], "+", 
+              RowBox[{"512", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "4"], " ", "\[CapitalGamma]1", " ", 
+               "\[Kappa]"}], "+", 
+              RowBox[{"384", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "8"], " ", 
+               SuperscriptBox["G", "3"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1536", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "5"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1280", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "6"], " ", 
+               SuperscriptBox["G", "4"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"1280", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "4"], " ", 
+               SuperscriptBox["G", "6"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], 
+              "+", 
+              RowBox[{"896", " ", "\[ImaginaryI]", " ", 
+               SuperscriptBox["g", "4"], " ", 
+               SuperscriptBox["G", "5"], " ", 
+               SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], 
+              "+", 
+              TemplateBox[{"2480"},
+               "OutputSizeLimit`Skeleton"]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"512", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "3"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"]}], "+", 
+            RowBox[{"1024", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "5"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"]}], "+", 
+            RowBox[{"1024", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "3"], " ", "\[CapitalGamma]1", " ", 
+             "\[Kappa]"}], "+", 
+            RowBox[{"768", " ", 
+             SuperscriptBox["g", "10"], " ", 
+             SuperscriptBox["G", "2"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"3328", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"2560", " ", 
+             SuperscriptBox["g", "8"], " ", 
+             SuperscriptBox["G", "3"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"3072", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "5"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "3"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"1792", " ", 
+             SuperscriptBox["g", "6"], " ", 
+             SuperscriptBox["G", "4"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], "+", 
+            
+            RowBox[{"768", " ", 
+             SuperscriptBox["g", "4"], " ", 
+             SuperscriptBox["G", "6"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "4"], " ", "\[Kappa]"}], "+", 
+            
+            TemplateBox[{"1752"},
+             "OutputSizeLimit`Skeleton"], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["G", "2"], " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["G", "2"], " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]", " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", 
+             SuperscriptBox["G", "2"], " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", "G", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"512", " ", "G", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "3"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", 
+             SuperscriptBox["\[Kappa]", "3"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", 
+             SuperscriptBox["\[CapitalGamma]1", "2"], " ", "\[Kappa]", " ", 
+             SubsuperscriptBox["\[Delta]", "q", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}], "+", 
+            RowBox[{"256", " ", "\[CapitalGamma]1", " ", 
+             SuperscriptBox["\[Kappa]", "2"], " ", 
+             SubsuperscriptBox["\[Delta]", "q", "4"], " ", 
+             SubsuperscriptBox["\[Delta]", "r", "8"]}]}], ")"}]}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          PaneBox[
+           TagBox[
+            TooltipBox[
+             StyleBox[
+              StyleBox[
+               DynamicBox[ToBoxes[
+                 FEPrivate`FrontEndResource[
+                 "FEStrings", "sizeBriefExplanation"], StandardForm],
+                ImageSizeCache->{58., {2., 8.}}],
+               StripOnInput->False,
+               DynamicUpdating->True,
+               LineSpacing->{1, 2},
+               LineIndent->0,
+               LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLText",
+              StripOnInput->False],
+             StyleBox[
+              DynamicBox[
+               ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+                StandardForm]], DynamicUpdating -> True, LineIndent -> 0, 
+              LinebreakAdjustments -> {1., 100, 0, 0, 0}, 
+              LineSpacing -> {1, 2}, StripOnInput -> False]],
+            Annotation[#, 
+             Style[
+              Dynamic[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+              DynamicUpdating -> True, LineIndent -> 0, 
+              LinebreakAdjustments -> {1., 100, 0, 0, 0}, 
+              LineSpacing -> {1, 2}], "Tooltip"]& ],
+           Alignment->Center,
+           BaselinePosition->Baseline,
+           ImageSize->{Automatic, {25, Full}}], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 1314, 23007534575656693100, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 1314, 23007534575656693100, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 1314, 23007534575656693100, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Advanced"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+     GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    BaseStyle->"OutputSizeLimit",
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  If[23007534575656693100 === $SessionID, 
+   Out[1314], Message[
+     MessageName[Syntax, "noinfoker"]]; Missing["NotAvailable"]; 
+   Null]]], "Output",
+ CellChangeTimes->{{3.8394149911426353`*^9, 3.839415000513695*^9}, {
+  3.839415059253511*^9, 3.8394150962387247`*^9}},
+ CellLabel->
+  "Out[1314]=",ExpressionUUID->"8c0cfe15-47e6-4e61-9974-9af6f921e750"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"step4", " ", "=", " ", 
   RowBox[{"Factor", "[", "step3", "]"}]}]], "Input",
  CellChangeTimes->{{3.839404586391418*^9, 3.839404591492751*^9}},
  CellLabel->
-  "In[733]:=",ExpressionUUID->"4ad8e727-d9e5-476b-a543-1b567d46781c"],
+  "In[1315]:=",ExpressionUUID->"4ad8e727-d9e5-476b-a543-1b567d46781c"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[CapitalOmega]", " ", 
+   RowBox[{"(", 
+    RowBox[{"G", "-", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Delta]", "q"]}]}], ")"}]}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+    SuperscriptBox["g", "2"]}], "-", 
+   RowBox[{"\[ImaginaryI]", " ", "G", " ", "\[Kappa]"}], "-", 
+   RowBox[{"\[Kappa]", " ", 
+    SubscriptBox["\[Delta]", "q"]}], "-", 
+   RowBox[{"2", " ", "G", " ", 
+    SubscriptBox["\[Delta]", "r"]}], "+", 
+   RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+    SubscriptBox["\[Delta]", "q"], " ", 
+    SubscriptBox["\[Delta]", "r"]}]}]]], "Output",
+ CellChangeTimes->{3.83941510477264*^9},
+ CellLabel->
+  "Out[1315]=",ExpressionUUID->"f56c6048-bb02-44b4-8cec-01cd3030bed3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"step5", "=", 
@@ -57203,8 +57557,128 @@ Cell[BoxData[
   3.8394050966187973`*^9, 3.8394051157135477`*^9}, {3.839405146193306*^9, 
   3.839405248637454*^9}},
  CellLabel->
-  "In[755]:=",ExpressionUUID->"1fa744f9-e7bf-43db-b5a2-6066b5f41118"]
+  "In[1316]:=",ExpressionUUID->"1fa744f9-e7bf-43db-b5a2-6066b5f41118"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[CapitalOmega]", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]", "-", 
+     
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Delta]", "q"]}]}], ")"}]}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+    SuperscriptBox["g", "2"]}], "-", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]"}], 
+     ")"}], " ", "\[Kappa]"}], "-", 
+   RowBox[{"\[Kappa]", " ", 
+    SubscriptBox["\[Delta]", "q"]}], "-", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]"}], 
+     ")"}], " ", 
+    SubscriptBox["\[Delta]", "r"]}], "+", 
+   RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+    SubscriptBox["\[Delta]", "q"], " ", 
+    SubscriptBox["\[Delta]", "r"]}]}]]], "Output",
+ CellChangeTimes->{3.8394151183175583`*^9},
+ CellLabel->
+  "Out[1316]=",ExpressionUUID->"20d4a41a-b9a2-44a4-a305-5601407c89a0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"step6", " ", "=", 
+  RowBox[{"I", " ", 
+   FractionBox[
+    RowBox[{"\[CapitalOmega]", "/", "2"}], 
+    RowBox[{" ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox["\[Kappa]", "2"], "-", 
+        RowBox[{"I", " ", 
+         SubscriptBox["\[Delta]", "r"]}]}], ")"}], "+", 
+      FractionBox[
+       SuperscriptBox["g", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]", 
+         "-", 
+         RowBox[{"I", " ", 
+          SubscriptBox["\[Delta]", "q"]}]}], 
+        ")"}]]}]}]]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"step6", "-", "step5"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.839415583281653*^9, 3.8394155861418247`*^9}, {
+  3.8394157143754797`*^9, 3.8394157210578403`*^9}},
+ CellLabel->
+  "In[1317]:=",ExpressionUUID->"ce4b6a3d-24e7-413c-bff7-5b9b37c5ad4d"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[ImaginaryI]", " ", "\[CapitalOmega]"}], 
+  RowBox[{"2", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["\[Kappa]", "2"], "+", 
+     FractionBox[
+      SuperscriptBox["g", "2"], 
+      RowBox[{
+       FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]", 
+       "-", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["\[Delta]", "q"]}]}]], "-", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Delta]", "r"]}]}], ")"}]}]]], "Output",
+ CellChangeTimes->{3.839415722139538*^9},
+ CellLabel->
+  "Out[1317]=",ExpressionUUID->"810bf1fa-2145-4702-814b-d8103d1a2e95"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.839415722144808*^9},
+ CellLabel->
+  "Out[1318]=",ExpressionUUID->"3dc043b8-e010-4ff4-92cc-357ef9ca3662"]
 }, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["5. Solution", "Title",
+ CellChangeTimes->{{3.839415731964457*^9, 
+  3.83941573543346*^9}},ExpressionUUID->"9da38cc3-7adf-43e4-83e6-\
+2126ab5d5ada"],
+
+Cell[TextData[Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[ImaginaryI]", " ", 
+   RowBox[{"\[CapitalOmega]", "/", "2"}]}], 
+  RowBox[{
+   FractionBox["\[Kappa]", "2"], "-", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    SubscriptBox["\[Delta]", "r"]}], "+", 
+   FractionBox[
+    SuperscriptBox["g", "2"], 
+    RowBox[{
+     FractionBox["\[CapitalGamma]1", "2"], "+", "\[CapitalGamma]\[Phi]", "-", 
+     
+     RowBox[{"\[ImaginaryI]", " ", 
+      SubscriptBox["\[Delta]", "q"]}]}]]}]]], "Chapter",
+ CellChangeTimes->{
+  3.839415722139538*^9},ExpressionUUID->"f0943c43-e3aa-47df-9060-\
+f7f71c4539a3"]], "Chapter",
+ CellChangeTimes->{{3.8394157383568583`*^9, 
+  3.839415777652491*^9}},ExpressionUUID->"9da67080-c0a5-4ce5-896a-\
+f72802b22937"]
 }, Open  ]]
 },
 WindowSize->{Full, Full},
@@ -57725,10 +58199,10 @@ Cell[1229864, 30565, 783, 22, 94, "Input",ExpressionUUID->"afb8c6c4-6b60-47fb-ac
 Cell[1230650, 30589, 655, 17, 74, "Output",ExpressionUUID->"370b65ef-45f8-4c96-9446-7d7a6164611d"],
 Cell[1231308, 30608, 248, 4, 34, "Output",ExpressionUUID->"1201c8ce-18bc-4e6a-8fc5-8c22ea742785"]
 }, Open  ]]
-}, Closed]]
-}, Open  ]],
+}, Open  ]]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[1231617, 30619, 154, 3, 98, "Title",ExpressionUUID->"01bcb71b-066f-4124-9230-dd75fee8df9f"],
+Cell[1231617, 30619, 154, 3, 72, "Title",ExpressionUUID->"01bcb71b-066f-4124-9230-dd75fee8df9f"],
 Cell[1231774, 30624, 675, 19, 97, "Chapter",ExpressionUUID->"147097f7-c777-4c41-8f7b-fc7fa383085c"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -57885,16 +58359,34 @@ Cell[2351338, 56351, 3679, 100, 82, "Output",ExpressionUUID->"717e8b11-beab-455c
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[2355054, 56456, 925, 20, 220, "Input",ExpressionUUID->"eaa8fb59-be8c-45fb-9fcd-80fc022ad5ac"],
-Cell[2355982, 56478, 13453, 336, 163, "Output",ExpressionUUID->"12781b15-47b8-4b79-a9c0-59463c55dd7e"]
+Cell[2355982, 56478, 9242, 240, 108, "Output",ExpressionUUID->"aa22cc05-321d-4ceb-986b-080f90785aab"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2369472, 56819, 250, 5, 30, "Input",ExpressionUUID->"df3ca08e-2bc5-457b-96de-ed835e3e0cd0"],
-Cell[2369725, 56826, 13857, 333, 121, "Output",ExpressionUUID->"30eb1340-3c9c-4453-b16c-d7d02faf5cd5"]
+Cell[2365261, 56723, 545, 12, 52, "Input",ExpressionUUID->"df3ca08e-2bc5-457b-96de-ed835e3e0cd0"],
+Cell[2365809, 56737, 15500, 365, 144, "Output",ExpressionUUID->"27b0eae0-c946-4dec-9e65-e932e16893a7"]
 }, Open  ]],
-Cell[2383597, 57162, 817, 22, 140, "Input",ExpressionUUID->"a0b7966d-73fb-467b-aa2b-febb97a9192f"],
-Cell[2384417, 57186, 249, 5, 30, "Input",ExpressionUUID->"4ad8e727-d9e5-476b-a543-1b567d46781c"],
-Cell[2384669, 57193, 479, 12, 47, "Input",ExpressionUUID->"1fa744f9-e7bf-43db-b5a2-6066b5f41118"]
+Cell[CellGroupData[{
+Cell[2381346, 57107, 1316, 35, 203, "Input",ExpressionUUID->"a0b7966d-73fb-467b-aa2b-febb97a9192f"],
+Cell[2382665, 57144, 15507, 365, 144, "Output",ExpressionUUID->"8c0cfe15-47e6-4e61-9974-9af6f921e750"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2398209, 57514, 250, 5, 30, "Input",ExpressionUUID->"4ad8e727-d9e5-476b-a543-1b567d46781c"],
+Cell[2398462, 57521, 773, 21, 60, "Output",ExpressionUUID->"f56c6048-bb02-44b4-8cec-01cd3030bed3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2399272, 57547, 480, 12, 47, "Input",ExpressionUUID->"1fa744f9-e7bf-43db-b5a2-6066b5f41118"],
+Cell[2399755, 57561, 1085, 31, 66, "Output",ExpressionUUID->"20d4a41a-b9a2-44a4-a305-5601407c89a0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2400877, 57597, 912, 26, 94, "Input",ExpressionUUID->"ce4b6a3d-24e7-413c-bff7-5b9b37c5ad4d"],
+Cell[2401792, 57625, 640, 18, 74, "Output",ExpressionUUID->"810bf1fa-2145-4702-814b-d8103d1a2e95"],
+Cell[2402435, 57645, 154, 3, 34, "Output",ExpressionUUID->"3dc043b8-e010-4ff4-92cc-357ef9ca3662"]
 }, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2402650, 57655, 153, 3, 72, "Title",ExpressionUUID->"9da38cc3-7adf-43e4-83e6-2126ab5d5ada"],
+Cell[2402806, 57660, 727, 20, 97, "Chapter",ExpressionUUID->"9da67080-c0a5-4ce5-896a-f72802b22937"]
 }, Open  ]]
 }
 ]
