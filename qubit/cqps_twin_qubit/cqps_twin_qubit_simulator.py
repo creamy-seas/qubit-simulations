@@ -42,6 +42,11 @@ class CqpsTwinQubitSimulator:
 
         # Prepare sweeping parameters
         (phi_l_list, phi_r_list) = self.unpack_phi_sweep_dictionary(phi_dict)
+        try:
+            assymetry = phi_dict["assymetry"]
+        except KeyError:
+            assymetry = 1
+
         dim_l = len(phi_l_list)
         dim_r = len(phi_r_list)
 
@@ -70,7 +75,7 @@ class CqpsTwinQubitSimulator:
             for (phi_r_idx, phi_r) in enumerate(phi_r_list):
                 # In the case of balanced flux
                 if phi_r is None:
-                    phi_r = phi_l
+                    phi_r = phi_l * assymetry
 
                 (eigvals, eigvecs) = self.simulation_kernel(
                     phi_l=phi_l,

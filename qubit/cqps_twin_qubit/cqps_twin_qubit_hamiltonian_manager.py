@@ -78,7 +78,7 @@ class CqpsTwinQubitHamiltonianManager:
             # - fill out the symmetrical entries
             if state_numeric[LEFT] < (states_per_loop - 1):
 
-                # Tunneling out from left loop
+                # Tunneling into/out of left loop
                 matrix_row = convert_state_to_index(state_numeric + [1, 0])
                 self.hamiltonian_elements["loop-env-tunneling"]["row"] += [
                     matrix_row,
@@ -121,6 +121,8 @@ class CqpsTwinQubitHamiltonianManager:
                     matrix_row,
                 ]
                 self.hamiltonian_elements["loop-env-tunneling"]["val"] += [
+                    # 0,
+                    # 0
                     -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
                     -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
                 ]

@@ -1,10 +1,5 @@
-"""
-CQPS twin qubit
-"""
-
 from typing import List, Dict
 import pinject
-
 
 class CqpsTwinQubit:
     @pinject.copy_args_to_public_fields

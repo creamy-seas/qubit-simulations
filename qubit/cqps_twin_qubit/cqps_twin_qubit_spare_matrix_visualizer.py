@@ -1,23 +1,24 @@
-from collections import defaultdict
 import logging
 
 import matplotlib.pyplot as plt
-from matplotlib.pyplot import Axes, Figure
+from matplotlib.pyplot import Axes
 import scipy.sparse as sp
 import numpy as np
 
 import pinject
 
 
-class TwinQubitSparseMatrixVisualiser:
+class CQPSTwinQubitSparseMatrixVisualiser:
     """Visualise the sparse matrix"""
 
     @pinject.copy_args_to_public_fields
-    def __init__(self, twin_qubit_hamiltonian_manager, twin_qubit_state_manager):
+    def __init__(
+        self, cqps_twin_qubit_hamiltonian_manager, cqps_twin_qubit_state_manager
+    ):
         pass
 
     def generate_csr_matrix(self, hamiltonian_component: str) -> sp.csr_matrix:
-        component = self.twin_qubit_hamiltonian_manager.hamiltonian_skeleton[
+        component = self.cqps_twin_qubit_hamiltonian_manager.hamiltonian_elements[
             hamiltonian_component
         ]
 
@@ -43,30 +44,13 @@ class TwinQubitSparseMatrixVisualiser:
 
         plt.rc("text.latex", preamble=r"\usepackage{braket}")
 
-        charge_elements = self.generate_csr_matrix("charge")
-        phi1_elements = self.generate_csr_matrix("phi1")
-        phi2_elements = self.generate_csr_matrix("phi2")
-        phi3_elements = self.generate_csr_matrix("phi3")
-        neg_phiExt_elements = self.generate_csr_matrix("-phi1+phi2-phiExt")
-        pos_phiExt_elements = self.generate_csr_matrix("+phi1-phi2+phiExt")
-        neg_nphiExt_elements = self.generate_csr_matrix("+phi2-phi3+nphiExt")
-        pos_nphiExt_elements = self.generate_csr_matrix("-phi2+phi3-nphiExt")
+        diagonal_elements = self.generate_csr_matrix("inductance")
+        loop_env_elements = self.generate_csr_matrix("loop-env-tunneling")
+        loop_loop_elements = self.generate_csr_matrix("loop-loop-tunneling")
 
-        mpl_axes.spy(phi1_elements, color=MY_COLOURS["DeepSkyBlue3"], markersize=6)
-        mpl_axes.spy(phi2_elements, color=MY_COLOURS["DeepSkyBlue2"], markersize=6)
-        mpl_axes.spy(phi3_elements, color=MY_COLOURS["SeaGreen3"], markersize=6)
-        # mpl_axes.spy(neg_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
-        # mpl_axes.spy(pos_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
-        # mpl_axes.spy(neg_nphiExt_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
-        # mpl_axes.spy(pos_nphiExt_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
-        mpl_axes.spy(charge_elements, color="black", markersize=6)
-        # mpl_axes.spy(phi1_elements, color="#00688b", markersize=6)
-        # mpl_axes.spy(phi2_elements, color="#009acd", markersize=6)
-        # mpl_axes.spy(phi3_elements, color="#00bfff", markersize=6)
-        mpl_axes.spy(neg_phiExt_elements, color="#ff2600", markersize=6)
-        mpl_axes.spy(pos_phiExt_elements, color="#ff2600", markersize=6)
-        mpl_axes.spy(neg_nphiExt_elements, color="#ff7f50", markersize=6)
-        mpl_axes.spy(pos_nphiExt_elements, color="#ff7f50", markersize=6)
+        mpl_axes.spy(diagonal_elements, color=MY_COLOURS["DeepSkyBlue3"], markersize=6)
+        mpl_axes.spy(loop_env_elements, color=MY_COLOURS["SeaGreen3"], markersize=6)
+        mpl_axes.spy(loop_loop_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
 
         self.format_axes(mpl_axes)
         # self.add_ticks_to_axes(mpl_axes)
@@ -75,7 +59,7 @@ class TwinQubitSparseMatrixVisualiser:
         mpl_axes.grid(b=True, which="major", color="black")
         mpl_axes.grid(b=True, which="minor")
 
-        states_total_number = self.twin_qubit_state_manager.states_total_number
+        states_total_number = self.cqps_twin_qubit_state_manager.states_total_number
         logging.info(f"📉 Using {states_total_number} for plotting")
 
         BORDER = 0.5
@@ -84,7 +68,7 @@ class TwinQubitSparseMatrixVisualiser:
 
     def add_ticks_to_axes(self, mpl_axes: Axes):
 
-        states_total_number = self.twin_qubit_state_manager.states_total_number
+        states_total_number = self.cqps_twin_qubit_state_manager.states_total_number
 
         mpl_axes.set_xticks(
             np.linspace(0, states_total_number - 1, states_total_number), minor=True
