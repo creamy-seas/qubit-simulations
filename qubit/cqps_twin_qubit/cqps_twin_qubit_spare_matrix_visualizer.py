@@ -35,6 +35,7 @@ class CQPSTwinQubitSparseMatrixVisualiser:
             "DeepPink4": "#8a154f",
             "DeepPink3": "#cc2375",
             "SeaGreen3": "#43cd80",
+            "SeaGreen4": "#439db0",
             "DodgerBlue4": "#104e8b",
             "DodgerBlue2": "#1c86ee",
             "DeepSkyBlue4": "#00688b",
@@ -45,11 +46,20 @@ class CQPSTwinQubitSparseMatrixVisualiser:
         plt.rc("text.latex", preamble=r"\usepackage{braket}")
 
         diagonal_elements = self.generate_csr_matrix("inductance")
-        loop_env_elements = self.generate_csr_matrix("loop-env-tunneling")
+        left_loop_env_elements = self.generate_csr_matrix("left-loop-env-tunneling")
+        right_loop_env_elements = self.generate_csr_matrix("right-loop-env-tunneling")
         loop_loop_elements = self.generate_csr_matrix("loop-loop-tunneling")
 
         mpl_axes.spy(diagonal_elements, color=MY_COLOURS["DeepSkyBlue3"], markersize=6)
-        mpl_axes.spy(loop_env_elements, color=MY_COLOURS["SeaGreen3"], markersize=6)
+        mpl_axes.spy(
+            left_loop_env_elements, color=MY_COLOURS["SeaGreen3"], markersize=6
+        )
+        mpl_axes.spy(
+            right_loop_env_elements, color=MY_COLOURS["SeaGreen4"], markersize=6
+        )
+        mpl_axes.spy(
+            left_loop_env_elements, color=MY_COLOURS["SeaGreen3"], markersize=6
+        )
         mpl_axes.spy(loop_loop_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
 
         self.format_axes(mpl_axes)

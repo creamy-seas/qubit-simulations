@@ -21,8 +21,9 @@ class CqpsTwinQubitConstantManager:
             self.offset_to_apply = (self.states_per_loop - 1) // 2
 
             # Phase slip "amplitude" across the central and side constrictions
-            self.ES = param_dictionary["ES"]
-            self.ES_on_sides = param_dictionary["ES_on_sides"]
+            self.ES_center = param_dictionary["ES_center"]
+            self.ES_left = param_dictionary["ES_left"]
+            self.ES_right = param_dictionary["ES_right"]
 
             # Energies associated with the branches of the inductive loops
             self.inductive_loop_squares_left = param_dictionary[
@@ -100,17 +101,21 @@ class CqpsTwinQubitConstantManager:
         self,
         EL_left: float = None,
         EL_right: float = None,
-        ES: float = None,
-        ES_on_sides: float = None,
+        ES_center: float = None,
+        ES_left: float = None,
+        ES_right: float = None,
+        **kwargs,
     ):
         logging.info(
             f"{TerminalColour.CRED}{TerminalColour.BOLD}Overriding to the values{TerminalColour.ENDC}"
         )
 
-        if ES_on_sides:
-            self.ES_on_sides = ES_on_sides
-        if ES:
-            self.ES = ES
+        if ES_left:
+            self.ES_left = ES_left
+        if ES_right:
+            self.ES_right = ES_right
+        if ES_center:
+            self.ES_center = ES_center
         if EL_right:
             self.EL_right = EL_right
         if EL_left:
@@ -125,8 +130,9 @@ class CqpsTwinQubitConstantManager:
 {TerminalColour.CBLUEBG}{TerminalColour.CYELLOW}{TerminalColour.BOLD}Energies{TerminalColour.ENDC}
 {'EL_left:':<50}{self.EL_left:.2f} (GHz)
 {'EL_right:':<50}{self.EL_right:.2f} (GHz)
-{'ES:':<50}{self.ES:.2f} (GHz)
-{'ES_on_sides:':<50}{self.ES_on_sides:.2f} (GHz)
+{'ES_center:':<50}{self.ES_center:.2f} (GHz)
+{'ES_left:':<50}{self.ES_left:.2f} (GHz)
+{'ES_right:':<50}{self.ES_right:.2f} (GHz)
 
 {TerminalColour.CBLUEBG}{TerminalColour.CYELLOW}{TerminalColour.BOLD}Raw Parameters{TerminalColour.ENDC}
 {'states_per_loop:':<50}{self.states_per_loop}

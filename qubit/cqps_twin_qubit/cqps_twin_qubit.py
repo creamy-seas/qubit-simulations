@@ -1,6 +1,7 @@
 from typing import List, Dict
 import pinject
 
+
 class CqpsTwinQubit:
     @pinject.copy_args_to_public_fields
     def __init__(
@@ -18,19 +19,8 @@ class CqpsTwinQubit:
         """
         pass
 
-    def override_parameters(
-        self,
-        EL_right: float = None,
-        EL_left: float = None,
-        ES: float = None,
-        ES_on_sides: float = None,
-    ):
-        self.cqps_twin_qubit_constant_manager.override_parameters(
-            EL_left=EL_left,
-            EL_right=EL_right,
-            ES=ES,
-            ES_on_sides=ES_on_sides,
-        )
+    def override_parameters(self, **kwargs):
+        self.cqps_twin_qubit_constant_manager.override_parameters(**kwargs)
 
     def run_simulation(
         self,

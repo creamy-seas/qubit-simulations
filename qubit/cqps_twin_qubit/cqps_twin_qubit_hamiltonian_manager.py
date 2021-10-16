@@ -32,15 +32,16 @@ class CqpsTwinQubitHamiltonianManager:
         |                     | Scaling                                 |
         |---------------------+-----------------------------------------|
         | diagonal            | (nl - phi_l)^2/2Ll + (fr - phi_r)^2/2Ll |
-        | loop-loop-tunneling | - ES/2                                  |
-        | loop-env-tunneling  | - ES_on_sides/2                         |
+        | loop-loop-tunneling | - ES_center/2                                  |
+        | loop-env-tunneling  | - ES_right/2                         |
         |---------------------+-----------------------------------------|
         """
         # Reset parameters for simulation
         self.hamiltonian_elements = OrderedDict()
         self.hamiltonian_elements["inductance"] = defaultdict(list)
         self.hamiltonian_elements["loop-loop-tunneling"] = defaultdict(list)
-        self.hamiltonian_elements["loop-env-tunneling"] = defaultdict(list)
+        self.hamiltonian_elements["left-loop-env-tunneling"] = defaultdict(list)
+        self.hamiltonian_elements["right-loop-env-tunneling"] = defaultdict(list)
 
         self.hamiltonian_skeleton = defaultdict(list)
 
@@ -80,17 +81,17 @@ class CqpsTwinQubitHamiltonianManager:
 
                 # Tunneling into/out of left loop
                 matrix_row = convert_state_to_index(state_numeric + [1, 0])
-                self.hamiltonian_elements["loop-env-tunneling"]["row"] += [
+                self.hamiltonian_elements["left-loop-env-tunneling"]["row"] += [
                     matrix_row,
                     matrix_col,
                 ]
-                self.hamiltonian_elements["loop-env-tunneling"]["col"] += [
+                self.hamiltonian_elements["left-loop-env-tunneling"]["col"] += [
                     matrix_col,
                     matrix_row,
                 ]
-                self.hamiltonian_elements["loop-env-tunneling"]["val"] += [
-                    -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
-                    -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
+                self.hamiltonian_elements["left-loop-env-tunneling"]["val"] += [
+                    -self.cqps_twin_qubit_constant_manager.ES_left / 2,
+                    -self.cqps_twin_qubit_constant_manager.ES_left / 2,
                 ]
 
                 # flux exchange |nl, nr> <-> |nl-1, nl+1> between left and RIGHT loops
@@ -105,26 +106,24 @@ class CqpsTwinQubitHamiltonianManager:
                         matrix_col,
                     ]
                     self.hamiltonian_elements["loop-loop-tunneling"]["val"] += [
-                        -self.cqps_twin_qubit_constant_manager.ES / 2,
-                        -self.cqps_twin_qubit_constant_manager.ES / 2,
+                        -self.cqps_twin_qubit_constant_manager.ES_center / 2,
+                        -self.cqps_twin_qubit_constant_manager.ES_center / 2,
                     ]
 
             if state_numeric[RIGHT] < (states_per_loop - 1):
                 # Tunneling out from right tloop
                 matrix_row = convert_state_to_index(state_numeric + [0, 1])
-                self.hamiltonian_elements["loop-env-tunneling"]["row"] += [
+                self.hamiltonian_elements["right-loop-env-tunneling"]["row"] += [
                     matrix_row,
                     matrix_col,
                 ]
-                self.hamiltonian_elements["loop-env-tunneling"]["col"] += [
+                self.hamiltonian_elements["right-loop-env-tunneling"]["col"] += [
                     matrix_col,
                     matrix_row,
                 ]
-                self.hamiltonian_elements["loop-env-tunneling"]["val"] += [
-                    # 0,
-                    # 0
-                    -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
-                    -self.cqps_twin_qubit_constant_manager.ES_on_sides / 2,
+                self.hamiltonian_elements["right-loop-env-tunneling"]["val"] += [
+                    -self.cqps_twin_qubit_constant_manager.ES_right / 2,
+                    -self.cqps_twin_qubit_constant_manager.ES_right / 2,
                 ]
 
         # Collect up all rows and columns and put them in the skeleton
@@ -170,7 +169,8 @@ class CqpsTwinQubitHamiltonianManager:
                             for i in self.hamiltonian_elements["inductance"]["(nl,nr)"]
                         ],
                         self.hamiltonian_elements["loop-loop-tunneling"]["val"],
-                        self.hamiltonian_elements["loop-env-tunneling"]["val"],
+                        self.hamiltonian_elements["left-loop-env-tunneling"]["val"],
+                        self.hamiltonian_elements["right-loop-env-tunneling"]["val"],
                     )
                 ),
                 (
