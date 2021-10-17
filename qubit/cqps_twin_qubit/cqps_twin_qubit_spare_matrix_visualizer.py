@@ -61,6 +61,11 @@ class CQPSTwinQubitSparseMatrixVisualiser:
             left_loop_env_elements, color=MY_COLOURS["SeaGreen3"], markersize=6
         )
         mpl_axes.spy(loop_loop_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
+        # mpl_axes.spy(
+        #     self.generate_csr_matrix("coincidental-loop-env-tunneling"),
+        #     color="yellow",
+        #     markersize=6,
+        # )
 
         self.format_axes(mpl_axes)
         # self.add_ticks_to_axes(mpl_axes)

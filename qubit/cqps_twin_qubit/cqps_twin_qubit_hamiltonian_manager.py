@@ -42,6 +42,7 @@ class CqpsTwinQubitHamiltonianManager:
         self.hamiltonian_elements["loop-loop-tunneling"] = defaultdict(list)
         self.hamiltonian_elements["left-loop-env-tunneling"] = defaultdict(list)
         self.hamiltonian_elements["right-loop-env-tunneling"] = defaultdict(list)
+        # self.hamiltonian_elements["coincidental-loop-env-tunneling"] = defaultdict(list)
 
         self.hamiltonian_skeleton = defaultdict(list)
 
@@ -109,6 +110,22 @@ class CqpsTwinQubitHamiltonianManager:
                         -self.cqps_twin_qubit_constant_manager.ES_center / 2,
                         -self.cqps_twin_qubit_constant_manager.ES_center / 2,
                     ]
+                # Co-incedental tunneling of flux in/out of left-right loops
+                # if state_numeric[RIGHT] < (states_per_loop - 1):
+                #     matrix_row = convert_state_to_index(state_numeric + [1, 1])
+                #     self.hamiltonian_elements["coincidental-loop-env-tunneling"]["row"] += [
+                #         matrix_col,
+                #         matrix_row,
+                #     ]
+                #     self.hamiltonian_elements["coincidental-loop-env-tunneling"]["col"] += [
+                #         matrix_row,
+                #         matrix_col,
+                #     ]
+                #     self.hamiltonian_elements["coincidental-loop-env-tunneling"]["val"] += [
+                #         # Naturally we would assume a lower energy associated with a double event
+                #         -(self.cqps_twin_qubit_constant_manager.ES_left + self.cqps_twin_qubit_constant_manager.ES_right) / 2,
+                #         -(self.cqps_twin_qubit_constant_manager.ES_left + self.cqps_twin_qubit_constant_manager.ES_right) / 2,
+                #     ]
 
             if state_numeric[RIGHT] < (states_per_loop - 1):
                 # Tunneling out from right tloop
@@ -171,6 +188,9 @@ class CqpsTwinQubitHamiltonianManager:
                         self.hamiltonian_elements["loop-loop-tunneling"]["val"],
                         self.hamiltonian_elements["left-loop-env-tunneling"]["val"],
                         self.hamiltonian_elements["right-loop-env-tunneling"]["val"],
+                        # self.hamiltonian_elements["coincidental-loop-env-tunneling"][
+                        #     "val"
+                        # ],
                     )
                 ),
                 (
