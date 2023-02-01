@@ -21,6 +21,8 @@ class TwinQubitSparseMatrixVisualiser:
             hamiltonian_component
         ]
 
+        print(hamiltonian_component)
+
         return sp.coo_matrix(
             (np.ones(len(component["row"])), (component["row"], component["col"]))
         ).tocsr()
@@ -39,22 +41,32 @@ class TwinQubitSparseMatrixVisualiser:
             "DeepSkyBlue4": "#00688b",
             "DeepSkyBlue3": "#009acd",
             "DeepSkyBlue2": "#00bfff",
+            "Blue": '#004BA8',
+            "Red": '#ed2200',
+            "Green": '#9acd32',
+            "Yellow": "#ffc125",
+            "Sky": "#79cdcd",
+            "Purple":'#6959cd',
+            "Salmon": '#ffa07a',
+            "Steel": "#68838b",
+            "Brown": '#EDD3BF',
+            "AquaGreen": '#5EE5A2'
         }
 
         plt.rc("text.latex", preamble=r"\usepackage{braket}")
 
         charge_elements = self.generate_csr_matrix("charge")
-        phi1_elements = self.generate_csr_matrix("phi1")
-        phi2_elements = self.generate_csr_matrix("phi2")
-        phi3_elements = self.generate_csr_matrix("phi3")
-        neg_phiExt_elements = self.generate_csr_matrix("-phi1+phi2-phiExt")
-        pos_phiExt_elements = self.generate_csr_matrix("+phi1-phi2+phiExt")
-        neg_nphiExt_elements = self.generate_csr_matrix("+phi2-phi3+nphiExt")
-        pos_nphiExt_elements = self.generate_csr_matrix("-phi2+phi3-nphiExt")
+        phi1_elements = self.generate_csr_matrix("phi01")
+        phi2_elements = self.generate_csr_matrix("phi02")
+        phi3_elements = self.generate_csr_matrix("phi03")
+        neg_phiExt_elements = self.generate_csr_matrix("-i(phi02-phi01-phi_l)")
+        pos_phiExt_elements = self.generate_csr_matrix("+i(phi02-phi01-phi_l)")
+        neg_nphiExt_elements = self.generate_csr_matrix("+i(phi02-phi03+phi_r)")
+        pos_nphiExt_elements = self.generate_csr_matrix("-i(phi02-phi03+phi_r)")
 
-        mpl_axes.spy(phi1_elements, color=MY_COLOURS["DeepSkyBlue3"], markersize=6)
-        mpl_axes.spy(phi2_elements, color=MY_COLOURS["DeepSkyBlue2"], markersize=6)
-        mpl_axes.spy(phi3_elements, color=MY_COLOURS["SeaGreen3"], markersize=6)
+        mpl_axes.spy(phi1_elements, color=MY_COLOURS["Blue"], markersize=6)
+        mpl_axes.spy(phi2_elements, color=MY_COLOURS["Sky"], markersize=6)
+        mpl_axes.spy(phi3_elements, color=MY_COLOURS["AquaGreen"], markersize=6)
         # mpl_axes.spy(neg_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
         # mpl_axes.spy(pos_phiExt_elements, color=MY_COLOURS["DeepPink4"], markersize=6)
         # mpl_axes.spy(neg_nphiExt_elements, color=MY_COLOURS["DeepPink3"], markersize=6)
@@ -63,10 +75,10 @@ class TwinQubitSparseMatrixVisualiser:
         # mpl_axes.spy(phi1_elements, color="#00688b", markersize=6)
         # mpl_axes.spy(phi2_elements, color="#009acd", markersize=6)
         # mpl_axes.spy(phi3_elements, color="#00bfff", markersize=6)
-        mpl_axes.spy(neg_phiExt_elements, color="#ff2600", markersize=6)
-        mpl_axes.spy(pos_phiExt_elements, color="#ff2600", markersize=6)
-        mpl_axes.spy(neg_nphiExt_elements, color="#ff7f50", markersize=6)
-        mpl_axes.spy(pos_nphiExt_elements, color="#ff7f50", markersize=6)
+        mpl_axes.spy(neg_phiExt_elements, color=MY_COLOURS["Salmon"], markersize=6)
+        mpl_axes.spy(pos_phiExt_elements, color=MY_COLOURS["Salmon"], markersize=6)
+        mpl_axes.spy(neg_nphiExt_elements, color=MY_COLOURS["Red"], markersize=6)
+        mpl_axes.spy(pos_nphiExt_elements, color=MY_COLOURS["Red"], markersize=6)
 
         self.format_axes(mpl_axes)
         # self.add_ticks_to_axes(mpl_axes)

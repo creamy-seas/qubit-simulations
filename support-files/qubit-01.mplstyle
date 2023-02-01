@@ -1,16 +1,16 @@
 ####################
 # font
 ####################
-axes.titlesize : 20
-axes.labelsize : 14
+axes.titlesize : 14
+axes.labelsize : 13
 text.hinting_factor : 8 # Specifies the amount of softness for hinting
 mathtext.fontset : cm
 
 ####################
 # axes
 ####################
-xtick.labelsize : 8
-ytick.labelsize : 8
+xtick.labelsize : 10
+ytick.labelsize : 10
 xtick.color : (0.17, 0.17, 0.17)
 ytick.color : (0.17, 0.17, 0.17)
 xtick.direction: in
@@ -26,7 +26,8 @@ ytick.right: True
 ####################
 lines.linewidth : 1.2
 lines.markersize : 2
-axes.prop_cycle: cycler('color', ['004BA8','0072B2','56B4E9','7A68A6','990000','CC79A7','009E73','EDD3BF','5EE5A2'])
+axes.prop_cycle: cycler('color', ['004BA8','ed2200','9acd32','ffc125','79cdcd','6959cd','ffa07a','68838b','EDD3BF','5EE5A2'])
+# axes.prop_cycle: cycler('color', ['104e8b','0072B2','56B4E9','7A68A6','990000','CC79A7','009E73','EDD3BF','5EE5A2'])
 
 ####################
 # axes and subplots
