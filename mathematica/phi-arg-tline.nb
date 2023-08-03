@@ -1,0 +1,306 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13641,        296]
+NotebookOptionsPosition[     12534,        269]
+NotebookOutlinePosition[     12926,        285]
+CellTagsIndexPosition[     12883,        282]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Import", "[", 
+  "\"\<https://raw.githubusercontent.com/jkuczm/MathematicaSyntaxAnnotations/\
+master/SyntaxAnnotations/SyntaxAnnotations.m\>\"", "]"}], "\n", 
+ RowBox[{"Import", "[", 
+  "\"\<https://raw.githubusercontent.com/jkuczm/MathematicaCellsToTeX/master/\
+NoInstall.m\>\"", "]"}]}], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"2fb3e03e-6fe3-464c-ab44-85c28a1b7219"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AnnotateSyntax", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"AnnotateSyntax\\\\\\\"\\\"}]\\) \
+appears in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"CellsToTeX`SyntaxAnnotations`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Global`SyntaxAnnotations`\\\\\\\"\\\"}], \\\"}\\\"}]\\); \
+definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"CellsToTeX`SyntaxAnnotations`\\\\\\\"\\\"}]\\) \
+may shadow or be shadowed by other definitions.\"", 2, 2, 1, 
+   23360003666261605831, "Local", 
+   "CellsToTeX`SyntaxAnnotations`AnnotateSyntax"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8931344733411016`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"96bcff4e-49d9-4d28-afb5-0423833892be"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Simplify", "[", 
+  RowBox[{"ComplexExpand", "[", 
+   RowBox[{"Re", "[", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"I", " ", "\[Omega]", " ", "l", 
+      RowBox[{"(", 
+       RowBox[{"\[Sigma]", "+", 
+        RowBox[{"I", " ", "\[Omega]", " ", "c"}]}], ")"}]}], "]"}], "]"}], 
+   "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"ComplexExpand", "[", 
+   RowBox[{"Im", "[", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"I", " ", "\[Omega]", " ", "l", 
+      RowBox[{"(", 
+       RowBox[{"\[Sigma]", "+", 
+        RowBox[{"I", " ", "\[Omega]", " ", "c"}]}], ")"}]}], "]"}], "]"}], 
+   "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.893134491439107*^9, 3.893134557313383*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"1627f980-21d6-4825-9ffb-a9d207b08ade"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["l", "2"], " ", 
+     SuperscriptBox["\[Omega]", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Sigma]", "2"], "+", 
+       RowBox[{
+        SuperscriptBox["c", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}]}], ")"}]}], ")"}], 
+   RowBox[{"1", "/", "4"}]], " ", 
+  RowBox[{"Cos", "[", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"Arg", "[", 
+     RowBox[{"\[ImaginaryI]", " ", "l", " ", "\[Omega]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Sigma]", "+", 
+        RowBox[{"\[ImaginaryI]", " ", "c", " ", "\[Omega]"}]}], ")"}]}], 
+     "]"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.8931345587996197`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"10f60643-8713-4c67-9edb-3c64370bee87"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["l", "2"], " ", 
+     SuperscriptBox["\[Omega]", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Sigma]", "2"], "+", 
+       RowBox[{
+        SuperscriptBox["c", "2"], " ", 
+        SuperscriptBox["\[Omega]", "2"]}]}], ")"}]}], ")"}], 
+   RowBox[{"1", "/", "4"}]], " ", 
+  RowBox[{"Sin", "[", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"Arg", "[", 
+     RowBox[{"\[ImaginaryI]", " ", "l", " ", "\[Omega]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Sigma]", "+", 
+        RowBox[{"\[ImaginaryI]", " ", "c", " ", "\[Omega]"}]}], ")"}]}], 
+     "]"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.893134558812051*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"cf4c3696-2275-4cef-9ce6-d6c17516f355"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"CellToTeX", ",", 
+    RowBox[{"\"\<CurrentCellIndex\>\"", "\[Rule]", "Automatic"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{"ExportString", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookGet", "[", "]"}], "/.", 
+    RowBox[{
+     RowBox[{"cell", ":", 
+      RowBox[{"Cell", "[", 
+       RowBox[{"_", ",", "__"}], "]"}]}], "\[RuleDelayed]", 
+     RowBox[{"Cell", "[", 
+      RowBox[{
+       RowBox[{"CellToTeX", "[", "cell", "]"}], ",", "\"\<Final\>\""}], 
+      "]"}]}]}], ",", "\"\<TeX\>\"", ",", 
+   RowBox[{"\"\<FullDocument\>\"", "\[Rule]", "False"}], ",", 
+   RowBox[{"\"\<ConversionRules\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Final\>\"", "\[Rule]", "Identity"}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"e776b229-3177-4ee5-9e59-4097576feef8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CellsToTeXException", "unsupported", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Box\\\\\\\"\\\"}]\\): \
+\\!\\(\\*RowBox[{\\\"DynamicBox\\\", \\\"[\\\", RowBox[{RowBox[{\\\"ToBoxes\\\
+\", \\\"[\\\", RowBox[{RowBox[{\\\"Refresh\\\", \\\"[\\\", RowBox[{RowBox[{\\\
+\"Internal`MessageMenu\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"CellsToTeX`SyntaxAnnotations`AnnotateSyntax\\\\\\\"\\\", \
+\\\",\\\", \\\"\\\\\\\"shdw\\\\\\\"\\\", \\\",\\\", \\\"2\\\", \\\",\\\", \
+\\\"2\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"23360003666261605831\\\", \
+\\\",\\\", \\\"\\\\\\\"Local\\\\\\\"\\\"}], \\\"]\\\"}], \\\",\\\", \
+\\\"None\\\"}], \\\"]\\\"}], \\\",\\\", \\\"StandardForm\\\"}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"Evaluator\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"FEPrivate`If\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"FEPrivate`EvaluatorStatus\\\", \\\"[\\\", \
+\\\"\\\\\\\"Local\\\\\\\"\\\", \\\"]\\\"}], \\\"===\\\", \
+\\\"\\\\\\\"Running\\\\\\\"\\\"}], \\\",\\\", \\\"\\\\\\\"Local\\\\\\\"\\\", \
+\\\",\\\", RowBox[{\\\"FrontEnd`CurrentValue\\\", \\\"[\\\", \
+RowBox[{\\\"FrontEnd`$FrontEnd\\\", \\\",\\\", \\\"Evaluator\\\"}], \
+\\\"]\\\"}]}], \\\"]\\\"}]}], \\\",\\\", RowBox[{\\\"ImageSizeCache\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\
+\\\"}]}], \\\",\\\", RowBox[{\\\"SingleEvaluation\\\", \\\"\[Rule]\\\", \
+\\\"True\\\"}]}], \\\"]\\\"}]\\) is not one of supported: \\!\\(\\*RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"RowBox\\\", \\\"[\\\", \\\"_List\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"StyleBox\\\", \
+\\\"|\\\", \\\"ButtonBox\\\", \\\"|\\\", \\\"InterpretationBox\\\", \
+\\\"|\\\", \\\"FormBox\\\", \\\"|\\\", \\\"TagBox\\\", \\\"|\\\", \
+\\\"TooltipBox\\\"}], \\\")\\\"}], \\\"[\\\", RowBox[{\\\"_\\\", \\\",\\\", \
+\\\"___\\\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"TemplateBox\\\", \
+\\\"[\\\", RowBox[{\\\"_\\\", \\\",\\\", \\\"_\\\", \\\",\\\", \\\"___\\\"}], \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"GridBox\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", \\\"___List\\\", \\\"}\\\"}], \\\",\\\", \\\"___\\\
+\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"10\\\", \\\
+\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"HoldPattern\\\", \\\"[\\\", \
+RowBox[{\\\"FractionBox\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Repeated\\\", \
+\\\"[\\\", RowBox[{\\\"_\\\", \\\",\\\", RowBox[{\\\"{\\\", \\\"2\\\", \
+\\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"OptionsPattern\\\", \
+\\\"[\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"HoldPattern\\\", \\\"[\\\", RowBox[{\\\"SqrtBox\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"Repeated\\\", \\\"[\\\", RowBox[{\\\"_\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\
+\\\"OptionsPattern\\\", \\\"[\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"HoldPattern\\\", \\\"[\\\", \
+RowBox[{\\\"RadicalBox\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Repeated\\\", \
+\\\"[\\\", RowBox[{\\\"_\\\", \\\",\\\", RowBox[{\\\"{\\\", \\\"2\\\", \
+\\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"OptionsPattern\\\", \
+\\\"[\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+\\\"_String\\\"}], \\\"}\\\"}]\\). Exception occurred in \
+\\!\\(\\*RowBox[{\\\"CellsToTeX`Configuration`boxesToTeXProcessor\\\", \
+\\\"[\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"BoxRules\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{RowBox[{\\\"RowBox\\\", \\\"[\\\", \
+RowBox[{\\\"CellsToTeX`Private`l\\\", \\\":\\\", RowBox[{\\\"Blank\\\", \\\"[\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \
+\\\"]\\\"}]}], \\\"]\\\"}], \\\"\[RuleDelayed]\\\", \
+RowBox[{\\\"CellsToTeX`Configuration`makeString\\\", \\\"[\\\", \
+\\\"CellsToTeX`Private`l\\\", \\\"]\\\"}]}], \\\",\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"16\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", \
+RowBox[{\\\"CellsToTeX`Private`str$_String\\\", \\\"\[RuleDelayed]\\\", \
+RowBox[{\\\"StringReplace\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"CellsToTeX`Configuration`makeStringDefault\\\", \
+\\\"[\\\", \\\"CellsToTeX`Private`str$\\\", \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Rule\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"Rule\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"5\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", \
+RowBox[{\\\"RuleDelayed\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]}], \
+\\\"]\\\"}]}]}], \\\"}\\\"}]}], \\\",\\\", RowBox[{RowBox[{\\\"\\\\\\\"\\\\\\\
+\"\\\", \\\"\[Ellipsis]\\\", \\\"\\\\\\\"\\\\\\\"\\\"}], \\\"\[Rule]\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"}\\\"}]}], \\\"}\\\"}], \\\"]\\\"}]\\).\"", 2,
+    6, 2, 23360003666261605831, "Local", "CellsToTeX`CellsToTeXException"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8931348445059557`*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"3d8f96ad-55f2-4637-9cb1-755254d5648d"],
+
+Cell[BoxData["\<\"\\\\begin{mmaCell}{Input}\\n  \
+Import[\\\"https://raw.githubusercontent.com/jkuczm/\
+MathematicaSyntaxAnnotations/master/SyntaxAnnotations/SyntaxAnnotations.m\\\"]\
+\\n  Import[\\\"https://raw.githubusercontent.com/jkuczm/\
+MathematicaCellsToTeX/master/NoInstall.m\\\"]\\n\\\\end{mmaCell}\\n\\n\\\\\
+begin{mmaCell}[addtoindex=1]{Input}\\n  Simplify[ComplexExpand[Re[Sqrt[I \
+\\\\mmaUnd{\\\\(\\\\pmb{\\\\omega}\\\\)} l(\\\\mmaUnd{\\\\(\\\\pmb{\\\\sigma}\
+\\\\)}+I \\\\mmaUnd{\\\\(\\\\pmb{\\\\omega}\\\\)} c)]]]]\\n  \
+Simplify[ComplexExpand[Im[Sqrt[I \\\\mmaUnd{\\\\(\\\\pmb{\\\\omega}\\\\)} \
+l(\\\\mmaUnd{\\\\(\\\\pmb{\\\\sigma}\\\\)}+I \
+\\\\mmaUnd{\\\\(\\\\pmb{\\\\omega}\\\\)} \
+c)]]]]\\n\\\\end{mmaCell}\\n\\n\\\\begin{mmaCell}{Output}\\n  \
+\\\\mmaSup{(\\\\mmaSup{l}{2} \\\\mmaSup{\\\\(\\\\omega\\\\)}{2} \
+(\\\\mmaSup{\\\\(\\\\sigma\\\\)}{2}+\\\\mmaSup{c}{2} \
+\\\\mmaSup{\\\\(\\\\omega\\\\)}{2}))}{1/4} Cos[\\\\mmaFrac{1}{2} Arg[i l \
+\\\\(\\\\omega\\\\)\\n(\\\\(\\\\sigma\\\\)+i c \
+\\\\(\\\\omega\\\\))]]\\n\\\\end{mmaCell}\\n\\n\\\\begin{mmaCell}{Output}\\n  \
+\\\\mmaSup{(\\\\mmaSup{l}{2} \\\\mmaSup{\\\\(\\\\omega\\\\)}{2} \
+(\\\\mmaSup{\\\\(\\\\sigma\\\\)}{2}+\\\\mmaSup{c}{2} \
+\\\\mmaSup{\\\\(\\\\omega\\\\)}{2}))}{1/4} Sin[\\\\mmaFrac{1}{2} Arg[i l \
+\\\\(\\\\omega\\\\)\\n(\\\\(\\\\sigma\\\\)+i c \
+\\\\(\\\\omega\\\\))]]\\n\\\\end{mmaCell}\\n\\n\\\\begin{mmaCell}[moredefined=\
+{CellToTeX},morepattern={cell}]{Input}\\n  \
+SetOptions[CellToTeX,\\\"CurrentCellIndex\\\"\\\\(\\\\pmb{\\\\to}\\\\)\
+Automatic];\\n  \
+ExportString[NotebookGet[]/.cell:Cell[_,__]\\\\(\\\\pmb{:\\\\to}\\\\)Cell[\
+CellToTeX[cell],\\\"Final\\\"],\\\"TeX\\\",\\\"FullDocument\\\"\\\\(\\\\pmb{\\\
+\\to}\\\\)False,\\\"ConversionRules\\\"\\\\(\\\\pmb{\\\\to}\\\\)\\\\{\\\"\
+Final\\\"\\\\(\\\\pmb{\\\\to}\\\\)Identity\\\\}]\\n\\\\end{mmaCell}\\n\\n\"\>\
+"], "Output",
+ CellChangeTimes->{3.893134846311248*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"8d90e184-cb30-433f-ab0e-13a7afe9a819"]
+}, Open  ]]
+},
+WindowSize->{970, 1139},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5fe0a35f-9231-4dd8-b3f0-ff788b422320"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 401, 7, 94, "Input",ExpressionUUID->"2fb3e03e-6fe3-464c-ab44-85c28a1b7219"],
+Cell[984, 31, 780, 16, 59, "Message",ExpressionUUID->"96bcff4e-49d9-4d28-afb5-0423833892be"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1801, 52, 795, 20, 52, "Input",ExpressionUUID->"1627f980-21d6-4825-9ffb-a9d207b08ade"],
+Cell[2599, 74, 824, 24, 50, "Output",ExpressionUUID->"10f60643-8713-4c67-9edb-3c64370bee87"],
+Cell[3426, 100, 822, 24, 50, "Output",ExpressionUUID->"cf4c3696-2275-4cef-9ce6-d6c17516f355"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4285, 129, 859, 23, 73, "Input",ExpressionUUID->"e776b229-3177-4ee5-9e59-4097576feef8"],
+Cell[5147, 154, 5374, 79, 162, "Message",ExpressionUUID->"3d8f96ad-55f2-4637-9cb1-755254d5648d"],
+Cell[10524, 235, 1994, 31, 730, "Output",ExpressionUUID->"8d90e184-cb30-433f-ab0e-13a7afe9a819"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
