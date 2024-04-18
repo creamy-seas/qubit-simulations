@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 4. Install juputer modules
 ```shell
-jupyter contrib nbextension install
+jupyter contrib nbextension install --user
 jupyter nbextension enable hinterland/main
 jupyter nbextension enable varInspector/main
 jupyter nbextension enable code_prettify/autopep8
